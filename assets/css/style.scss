@@ -9,8 +9,12 @@
     display: flex;
   }
   
-  /* "column style" is one-third of the width with padding */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
+/* "column style" is one-third of the width with padding */
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+.wrapper, section {
+  max-width: 800px;
+}

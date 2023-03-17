@@ -3,7 +3,15 @@
 
 @import "{{ site.theme }}";
 
+$color-primary: #76B041;
+$color-secondary: #FFC914;
+
 /* "row style" is flexible size and aligns pictures in center */
+
+html, body {
+  background: linear-gradient( to right, #000000, navy) !important;
+}
+
 .row {
     align-items: center;
     display: flex;
@@ -17,4 +25,12 @@
 
 .wrapper, section {
   max-width: 800px;
+}
+
+a {
+  color: $color-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-secondary;
 }

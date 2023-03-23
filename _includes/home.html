@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a href={{ site.gitorg }} style="text-decoration: none">{{ site.title | default: site.github.repository_name }}</a>
+          <a href={{ site.gitorg }} style="font-family:Ubuntu;color:#274C77 ;text-decoration: none; ">{{ site.title | default: site.github.repository_name }}</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -85,6 +85,16 @@
 
 
 <style>
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 /* first part of homepage css*/
 
@@ -108,8 +118,8 @@ width:1440px;
 {
 width:800px;
 height:480px;
-left:44px;
-top:93px;
+left:3%;
+top: 10%;
 position:absolute;
 }
 .background2

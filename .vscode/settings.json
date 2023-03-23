@@ -6,12 +6,15 @@
         "Alora",
         "Annalyce",
         "Braden",
+        "buttonholder",
         "Calem",
         "chelan",
+        "classlist",
         "Connor",
         "Coram",
         "Culloden",
         "Danebo",
+        "deletebutton",
         "Drumond",
         "Englehardt",
         "Gavi",
@@ -26,17 +29,20 @@
         "Leuck",
         "Leucks",
         "naya",
+        "objbutton",
+        "objectcard",
+        "objectcardbutton",
         "Peyton",
         "Preg",
         "Sayla",
         "Schaffer",
         "Shreeve",
         "Snohomish",
+        "storedinfo",
         "Tiernan",
+        "updatebutton",
         "webp",
         "wiffle",
         "Zumba"
     ]
-
-   
 }

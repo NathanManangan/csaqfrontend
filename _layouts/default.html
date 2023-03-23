@@ -27,13 +27,12 @@
     </style>
   </head>
   <body style="color:white; background-color: rgba(39,76,119,255);">
-      
+    {% include home.html %}
     <div class="wrapper">
         <!-- nighthawk coding society has altered arrangement and inserted navigation that is updated in independent file -->
-        {% include home.html %}
+        
         <div id="title">
-          <h1></h1>
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
+          
           <hr>
         </div>
 
@@ -44,4 +43,11 @@
 
     </div>
   </body>
+  <footer>
+    <br>
+    <hr>
+    <br>
+    <p style="text-align: middle">{{ site.description | default: site.github.project_tagline }}</p>
+    <br>
+  </footer>
 </html>

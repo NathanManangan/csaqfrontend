@@ -4,7 +4,7 @@
   found through GitHub Pages Themes
  -->
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+  <head style="background-color: white">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -26,11 +26,10 @@
     <br>
     <div class="wrapper">
         <!-- nighthawk coding society has altered arrangement and inserted navigation that is updated in independent file -->
-        
+
+        {% include homeextra.html %}
 
         <!-- this is Jekyll magic, each md file in site will be inserted here -->
-        {{ content }}
-
       </section>
 
     </div>

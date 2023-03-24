@@ -1,5 +1,135 @@
 # FRQ Test Site
 
+<html>
+<body>
+
+<div id='test' class='test'>
+<div id='naviationsplit' class='naviationsplit'>
+<div id='background' class='background'>
+</div>
+<div id='logo' class='logo'>
+CSAq</div>
+<button id='buttonprimary' class='buttonprimary'>
+<div id='background2' class='background2'>
+</div>
+<div id='text' class='text'>
+Sign Up</div>
+</button>
+<div id='link' class='link'>
+Categories</div>
+<div id='link2' class='link2'>
+Reviews</div>
+<div id='link3' class='link3'>
+Test</div>
+<div id='polygon1' class='polygon1'>
+</div>
+</div>
+<div id='rectangle5' class='rectangle5'>
+</div>
+<div id='rectangle11' class='rectangle11'>
+</div>
+<div id='rectangle12' class='rectangle12'>
+</div>
+<div id='rectangle13' class='rectangle13'>
+</div>
+<div id='rectangle14' class='rectangle14'>
+</div>
+<div id='rectangle8' class='rectangle8'>
+</div>
+<div id='rectangle9' class='rectangle9'>
+</div>
+<div id='rectangle10' class='rectangle10'>
+</div>
+<div id='methods&controlstructures' class='methods&controlstructures'>
+Methods & Control 
+       Structures</div>
+<div id='classes' class='classes'>
+Classes</div>
+<div id='arrays' class='arrays'>
+Arrays</div>
+<div id='darrays' class='darrays'>
+2D Arrays</div>
+<div id='polygon2' class='polygon2'>
+</div>
+<img id='polygon5' class='polygon5' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAAApCAYAAACr1w7eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJVSURBVHgB7duxbtNAAMbx73ICMnYsW3kAwJHK3mywwYYKEmVA8tiRjfIGsEViCQMVY96gHRkYjFgYw9axUwWq2ut9dSOlkZPY57vzObnfEF1iy4r+vtiKbIvdJD2AwAdE9Sh8PswG+/L3yc/jh5vbQkfdQWRG4aOO+Z5DyZcYtYY85sHkrZwMYlQDMzFJTr+JUSsoiEly9oObqH911OeIis2JSbLoQx01i1HnWBCT5LwFMWqBJTFJLloYo04pEZPkshUY9fHmk18Q6ikgulhHJWOSQEm7ybtEiM6RgtjAGrlUePs9GwzLrl86KK1b1KoxqVJQWpeoJjGpclBa9aimMakDA4fZl+xCiZ4ejrFCBNRpnZj5Nmp4maRbHYEjPdxCyzGmUpd9ThbUUCsorUJUWzHzbVnQ5qg2Y+bbs6SNUW3HJKOTUhF9IB/rA3of7TlRjW3HJGszdKIlM/V653MSwDLrQSnwqM5ikpOgFGhUpzHJWVAKLKrzmGTtpFSEX/6u6vb0RSqrB34DXmKS0xk6sZfsb5yL//q/v0rgn7eY5CUoNRTVa0zyFpQ8R/Uek5weQ2cNs0+nd9S9vr6cMoJbjcQkrzN02qteOlTAG1gnsjO900Z656EBSy/SuaIv/o0e3d9+oIcWf/7NxqTGgpLdqM3HpEaDkp2oYcSkxoMSo5repKZPAsdnqvsshJgURFAyufNPKHz9lg1e/Dn58Q+BCCYoVYl6E3MPgQkqKJWJGmpMCi4oLYoackwKMigVRs2ftEgRsGCD0q2oU09aRDW9TtIdtMQVd3F37yEBScAAAAAASUVORK5CYII='/>
+</img>
+<div id='polygon3' class='polygon3'>
+</div>
+<div id='polygon4' class='polygon4'>
+</div>
+<div id='problem1' class='problem1'>
+2010 Problem 1</div>
+<div id='rectangle15' class='rectangle15'>
+</div>
+<div id='problem12' class='problem12'>
+2019 Problem 1</div>
+<div id='rectangle22' class='rectangle22'>
+</div>
+<div id='problem13' class='problem13'>
+2010 Problem 1</div>
+<div id='rectangle21' class='rectangle21'>
+</div>
+<div id='problem14' class='problem14'>
+2010 Problem 1</div>
+<div id='rectangle19' class='rectangle19'>
+</div>
+<div id='problem2' class='problem2'>
+2020 Problem 2</div>
+<div id='rectangle23' class='rectangle23'>
+</div>
+<div id='problem15' class='problem15'>
+2010 Problem 1</div>
+<div id='rectangle26' class='rectangle26'>
+</div>
+<div id='problem16' class='problem16'>
+2010 Problem 1</div>
+<div id='rectangle25' class='rectangle25'>
+</div>
+<div id='problem17' class='problem17'>
+2010 Problem 1</div>
+<div id='rectangle24' class='rectangle24'>
+</div>
+<div id='problem18' class='problem18'>
+2010 Problem 1</div>
+<div id='rectangle20' class='rectangle20'>
+</div>
+<div id='problem19' class='problem19'>
+2010 Problem 1</div>
+<div id='rectangle18' class='rectangle18'>
+</div>
+<div id='problem110' class='problem110'>
+2010 Problem 1</div>
+<div id='rectangle17' class='rectangle17'>
+</div>
+<div id='problem111' class='problem111'>
+2010 Problem 1</div>
+<div id='rectangle16' class='rectangle16'>
+</div>
+<div id='problem112' class='problem112'>
+2010 Problem 1</div>
+<div id='problem3' class='problem3'>
+2021 Problem 3</div>
+<div id='problem113' class='problem113'>
+2015 Problem 1</div>
+<div id='problem4' class='problem4'>
+2017 Problem 4</div>
+</div>
+
+</body>
+</html>
+
+<div lik style="margin: 0 auto; text-align: center">
+    <input type="text" id="subject" name="subject" placeholder="Enter Subject Here"
+    style="width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #325DB9;
+  border-radius: 40px;
+  color: black;">
+    <button type="submit" onclick="formSubmit()">Get FRQs</button>
+</div>
+
 <style>
 .test
 {
@@ -692,134 +822,3 @@ width:229px;
 }
 
 </style>
-
-<body>
-
-<script>
-
-<div id='test' class='test'>
-<div id='naviationsplit' class='naviationsplit'>
-<div id='background' class='background'>
-</div>
-<div id='logo' class='logo'>
-CSAq</div>
-<button id='buttonprimary' class='buttonprimary'>
-<div id='background2' class='background2'>
-</div>
-<div id='text' class='text'>
-Sign Up</div>
-</button>
-<div id='link' class='link'>
-Categories</div>
-<div id='link2' class='link2'>
-Reviews</div>
-<div id='link3' class='link3'>
-Test</div>
-<div id='polygon1' class='polygon1'>
-</div>
-</div>
-<div id='rectangle5' class='rectangle5'>
-</div>
-<div id='rectangle11' class='rectangle11'>
-</div>
-<div id='rectangle12' class='rectangle12'>
-</div>
-<div id='rectangle13' class='rectangle13'>
-</div>
-<div id='rectangle14' class='rectangle14'>
-</div>
-<div id='rectangle8' class='rectangle8'>
-</div>
-<div id='rectangle9' class='rectangle9'>
-</div>
-<div id='rectangle10' class='rectangle10'>
-</div>
-<div id='methods&controlstructures' class='methods&controlstructures'>
-Methods & Control 
-       Structures</div>
-<div id='classes' class='classes'>
-Classes</div>
-<div id='arrays' class='arrays'>
-Arrays</div>
-<div id='darrays' class='darrays'>
-2D Arrays</div>
-<div id='polygon2' class='polygon2'>
-</div>
-<img id='polygon5' class='polygon5' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAAApCAYAAACr1w7eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJVSURBVHgB7duxbtNAAMbx73ICMnYsW3kAwJHK3mywwYYKEmVA8tiRjfIGsEViCQMVY96gHRkYjFgYw9axUwWq2ut9dSOlkZPY57vzObnfEF1iy4r+vtiKbIvdJD2AwAdE9Sh8PswG+/L3yc/jh5vbQkfdQWRG4aOO+Z5DyZcYtYY85sHkrZwMYlQDMzFJTr+JUSsoiEly9oObqH911OeIis2JSbLoQx01i1HnWBCT5LwFMWqBJTFJLloYo04pEZPkshUY9fHmk18Q6ikgulhHJWOSQEm7ybtEiM6RgtjAGrlUePs9GwzLrl86KK1b1KoxqVJQWpeoJjGpclBa9aimMakDA4fZl+xCiZ4ejrFCBNRpnZj5Nmp4maRbHYEjPdxCyzGmUpd9ThbUUCsorUJUWzHzbVnQ5qg2Y+bbs6SNUW3HJKOTUhF9IB/rA3of7TlRjW3HJGszdKIlM/V653MSwDLrQSnwqM5ikpOgFGhUpzHJWVAKLKrzmGTtpFSEX/6u6vb0RSqrB34DXmKS0xk6sZfsb5yL//q/v0rgn7eY5CUoNRTVa0zyFpQ8R/Uek5weQ2cNs0+nd9S9vr6cMoJbjcQkrzN02qteOlTAG1gnsjO900Z656EBSy/SuaIv/o0e3d9+oIcWf/7NxqTGgpLdqM3HpEaDkp2oYcSkxoMSo5repKZPAsdnqvsshJgURFAyufNPKHz9lg1e/Dn58Q+BCCYoVYl6E3MPgQkqKJWJGmpMCi4oLYoackwKMigVRs2ftEgRsGCD0q2oU09aRDW9TtIdtMQVd3F37yEBScAAAAAASUVORK5CYII='/>
-</img>
-<div id='polygon3' class='polygon3'>
-</div>
-<div id='polygon4' class='polygon4'>
-</div>
-<div id='problem1' class='problem1'>
-2010 Problem 1</div>
-<div id='rectangle15' class='rectangle15'>
-</div>
-<div id='problem12' class='problem12'>
-2019 Problem 1</div>
-<div id='rectangle22' class='rectangle22'>
-</div>
-<div id='problem13' class='problem13'>
-2010 Problem 1</div>
-<div id='rectangle21' class='rectangle21'>
-</div>
-<div id='problem14' class='problem14'>
-2010 Problem 1</div>
-<div id='rectangle19' class='rectangle19'>
-</div>
-<div id='problem2' class='problem2'>
-2020 Problem 2</div>
-<div id='rectangle23' class='rectangle23'>
-</div>
-<div id='problem15' class='problem15'>
-2010 Problem 1</div>
-<div id='rectangle26' class='rectangle26'>
-</div>
-<div id='problem16' class='problem16'>
-2010 Problem 1</div>
-<div id='rectangle25' class='rectangle25'>
-</div>
-<div id='problem17' class='problem17'>
-2010 Problem 1</div>
-<div id='rectangle24' class='rectangle24'>
-</div>
-<div id='problem18' class='problem18'>
-2010 Problem 1</div>
-<div id='rectangle20' class='rectangle20'>
-</div>
-<div id='problem19' class='problem19'>
-2010 Problem 1</div>
-<div id='rectangle18' class='rectangle18'>
-</div>
-<div id='problem110' class='problem110'>
-2010 Problem 1</div>
-<div id='rectangle17' class='rectangle17'>
-</div>
-<div id='problem111' class='problem111'>
-2010 Problem 1</div>
-<div id='rectangle16' class='rectangle16'>
-</div>
-<div id='problem112' class='problem112'>
-2010 Problem 1</div>
-<div id='problem3' class='problem3'>
-2021 Problem 3</div>
-<div id='problem113' class='problem113'>
-2015 Problem 1</div>
-<div id='problem4' class='problem4'>
-2017 Problem 4</div>
-</div>
-
-</script>
-</body>
-
-<div lik style="margin: 0 auto; text-align: center">
-    <input type="text" id="subject" name="subject" placeholder="Enter Subject Here"
-    style="width: 50%;
-  padding: 5px 5px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #325DB9;
-  border-radius: 40px;
-  color: black;">
-    <button type="submit" onclick="formSubmit()">Get FRQs</button>
-</div>

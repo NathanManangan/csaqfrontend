@@ -1,8 +1,6 @@
 # FRQ Test Site
 
-<body>
-
-<script>
+<style>
 .test
 {
 background-color:#d6daff;
@@ -693,8 +691,11 @@ position:absolute;
 width:229px;
 }
 
-</script>
-</body>
+</style>
+
+<body>
+
+<script>
 
 <div id='test' class='test'>
 <div id='naviationsplit' class='naviationsplit'>
@@ -806,4 +807,19 @@ Arrays</div>
 2015 Problem 1</div>
 <div id='problem4' class='problem4'>
 2017 Problem 4</div>
+</div>
+
+</script>
+</body>
+
+<div lik style="margin: 0 auto; text-align: center">
+    <input type="text" id="subject" name="subject" placeholder="Enter Subject Here"
+    style="width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #325DB9;
+  border-radius: 40px;
+  color: black;">
+    <button type="submit" onclick="formSubmit()">Get FRQs</button>
 </div>

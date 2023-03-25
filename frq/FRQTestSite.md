@@ -4,7 +4,7 @@
 <body>
 
 <div id='test' class='test'>
-<div id='naviationsplit' class='naviationsplit'>
+<div id='naviationsplit' class='naviationsplit'> 
 <div id='background' class='background'>
 </div>
 <div id='logo' class='logo'>

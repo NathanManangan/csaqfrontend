@@ -5,55 +5,57 @@
 
 <script>
     function runCode() {
-        var code = document.getElementById("code").value;
-        new_code = window.btoa(code);
-        var encoder = new TextEncoder();
-        var codeBytes = encoder.encode(code);
-        var base64Code = btoa(String.fromCharCode.apply(null, codeBytes));
-        console.log(base64Code);
-        
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'Content-Type': 'application/json',
-                'X-RapidAPI-Key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
-                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
-            },
-            body: {
-            "source_code": base64Code, // Replace with the base64 encoded source code
-            "language_id": 62 // Replace with the language ID for the programming language the user is using
-            }
-    };
+	const API_URL = 'https://judge0-ce.p.rapidapi.com/';
+	var code = document.getElementById("code").value;
 
-    fetch('https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true&fields=*', options)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            getOutput(data.token);
-        })
-        .catch(err => console.error(err));
+	const headers = {
+		'content-type': 'application/json',
+		'x-rapidapi-key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
+		'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
+	};
+
+	const data = {
+		source_code: `public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
     }
+}`,
+		language_id: 62, // Java language ID
+		stdin: '',
+	};
 
-    function getOutput(token) {
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
-                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
-            }
-
-        };
-
-        fetch('https://judge0-ce.p.rapidapi.com/submissions/' + token +'?base64_encoded=true&fields=*', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .then(data => {
-                console.log(data);
-                alert("Your output is " + data.stdout);
-            })
-            .catch(err => console.error(err));
-    }
-
+	fetch(API_URL + 'submissions', {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify(data),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			const submissionId = data.token;
+			// Poll for submission status until it's completed
+			let interval = setInterval(() => {
+				fetch(API_URL + `submissions/${submissionId}?base64_encoded=true`, {
+					headers: headers,
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.status.id <= 2) {
+							// Status is either "queued" or "processing"
+							console.log('Status: ' + data.status.description);
+						} else {
+							clearInterval(interval);
+							const output = atob(data.stdout);
+							console.log('Output: ' + output);
+						}
+					})
+					.catch((error) => {
+						console.error(error);
+					});
+			}, 1000);
+		})
+		.catch((error) => {
+			console.error(error);
+		});
+}
 </script>
 

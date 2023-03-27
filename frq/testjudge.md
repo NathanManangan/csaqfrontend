@@ -1,9 +1,15 @@
 <form>
-  <textarea id="code"></textarea>
-  <button type="button" onclick="runCode()">Run Code</button>
+    <center>
+    <textarea id="code" style="width: 500px; height: 500px;"></textarea>
+    <br/><br/>
+    <button type="button" onclick="runCode()">Run Code</button>
+    </center>
 </form>
 
 <script>
+
+    document.getElementById("code").style.width = "80vw";
+
     function runCode() {
 	const API_URL = 'https://judge0-ce.p.rapidapi.com/';
 	var code = document.getElementById("code").value;

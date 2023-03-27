@@ -21,11 +21,7 @@
 	};
 
 	const data = {
-		source_code: `public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}`,
+		source_code: code,
 		language_id: 62, // Java language ID
 		stdin: '',
 	};

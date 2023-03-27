@@ -8,9 +8,8 @@
       <div id='background2' class='background2'></div>
       <img id='group' class='group'
         src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAMCAYAAAA+ht7fAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJDSURBVHgB5ZZPSBRhGMaf7KDUxgxoq2y0bohLhy2KoIuHwryEe4rAoMuIBC0UXSoiWkrYoD9eWgilg3bxIBR4WJYOuq2QENFSCFkuyIbS0paHxj+Lnup9v9nPRne/wzgLCj7wLO98+34/eOYdvhngv3TyffJb8t+SP5ENVEc7ih8g52yNm50r9WxVgZ3C31PaIBYOaxrinZ0INTVBq61FcmYG0fFxzJsm93wnnyT/gXNZfH8j4v23EDrWAk33IJmYRPROP+bnClXhN/gO4krsGpqPBrDvwH5kUh8w/HgIC/nf63wObJCHOGyqp0cEtctcXUX74KAM3Ut+AGcyBJ/Cpt4NiKAb+OYy2tuuytBb5nPY2Ks+EdSu4tIK7l28KUP31tDPDa5iHR1lYVlaXR3i4bC8PAPnsviPImVhBV/ziKm75V++3V0WlsVrPHXJ58AnuDofDCqJIa9XlmfhXBY/3KbmH29xzT917rSygR9xya+Rlbm2ptzAU3YrfnSVfM0DtyouFZX/2SfPgdNcfCkUlBuS2awsP8O50oI/Navm0+Hllj/3Lads4MNL8jnwBFfXE4mKU16ktejYmLx8Buey+JG+ilNeNFfopB5wzX8RfV5xyrw2/OTlOn8vrLt6iYLpo9PT8Os6WuvrRdBMPo+ukRH7a6kbzmXxzWV99PUE/M2NaA36RdDMx6/ounCXTuifrvl0Guvv30yiweeF78ghEXR2KounkYdY+PGrjB/ALvnw2CwD1h2TjWlY70Ud1ZGx3fx/c6AOun+CSDYAAAAASUVORK5CYII=' />
-      </img>
       <img id ='group' class="group" src="assets/css/images/home-browser.png" alt="HTML5 Icon" style="width:450px;height:298px; position:relative; left: 52%; top: 90%;"/>
-    </div>
+    </div>f
     <div id='content' class='content'>
       <button id='buttonprimary' class='buttonprimary'>
         <div id='background3' class='background3'>
@@ -190,5 +189,9 @@
     line-height:auto;
     border-style:hidden;
     outline:none;
+    }
+    footer{
+      style= position: relative;
+      margin-top: 60%;
     }
     </style>

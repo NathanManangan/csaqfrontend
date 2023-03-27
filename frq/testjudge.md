@@ -6,33 +6,54 @@
 <script>
     function runCode() {
         var code = document.getElementById("code").value;
+        new_code = window.btoa(code);
+        var encoder = new TextEncoder();
+        var codeBytes = encoder.encode(code);
+        var base64Code = btoa(String.fromCharCode.apply(null, codeBytes));
+        console.log(base64Code);
         
-        // Set up the request data
-        var request_data = {
-            "source_code": code,
-            "language_id": 62, // Replace with the language ID for the programming language the user is using
-            "stdin": "",
-            "expected_output": ""
-        };
-        
-        // Make an HTTP POST request to the Judge0 API endpoint
-        fetch("https://judge0.com/api/v5/submissions", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(request_data)
-        })
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Content-Type': 'application/json',
+                'X-RapidAPI-Key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
+                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+            },
+            body: {
+            "source_code": base64Code, // Replace with the base64 encoded source code
+            "language_id": 62 // Replace with the language ID for the programming language the user is using
+            }
+    };
+
+    fetch('https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true&fields=*', options)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            // Handle the response data
-            // ...
+            getOutput(data.token);
         })
-        .catch(error => console.error(error));
-        }.then(data => {
-            console.log(data);
-            alert("Your submission ID is " + data.id);
-        })
+        .catch(err => console.error(err));
+    }
 
+    function getOutput(token) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
+                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+            }
+
+        };
+
+        fetch('https://judge0-ce.p.rapidapi.com/submissions/' + token +'?base64_encoded=true&fields=*', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .then(data => {
+                console.log(data);
+                alert("Your output is " + data.stdout);
+            })
+            .catch(err => console.error(err));
+    }
 
 </script>
 

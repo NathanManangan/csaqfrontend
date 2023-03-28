@@ -1,5 +1,32 @@
+<style>
+    .editor {
+        width: 80vw;
+        height: 600px;
+        background-color: black;
+        border-radius: 6px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        height: 340px;
+        letter-spacing: normal;
+        line-height: 20px;
+        padding: 10px;
+        tab-size: 4;
+    }
+    
+</style>
+
+<script type="module">
+  import {CodeJar} from 'https://medv.io/codejar/codejar.js'
+</script>
+
 <form>
     <center>
+    <div id="editor" class="editor"></div>
+    <script>
+    let jar = CodeJar(document.querySelector('.editor'), hljs.highlightElement)
+    </script>
     <textarea id="code" style="width: 500px; height: 500px;"></textarea>
     <br/><br/>
     <button type="button" onclick="runCode()">Run Code</button>

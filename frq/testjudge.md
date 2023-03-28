@@ -1,32 +1,40 @@
-<style>
-    .editor {
-        width: 80vw;
-        height: 600px;
-        background-color: black;
-        border-radius: 6px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        font-family: 'Source Code Pro', monospace;
-        font-size: 14px;
-        font-weight: 400;
-        height: 340px;
-        letter-spacing: normal;
-        line-height: 20px;
-        padding: 10px;
-        tab-size: 4;
+<head>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
     }
-    
-</style>
 
-<script type="module">
-  import {CodeJar} from 'https://medv.io/codejar/codejar.js'
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+  </style>
+</head>
+
+<pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</pre>
+
+<!-- https://github.com/ajaxorg/ace-builds/blob/master/src-noconflict/ace.js -->
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/javascript");
 </script>
 
 <form>
     <center>
-    <div id="editor" class="editor"></div>
-    <script>
-    let jar = CodeJar(document.querySelector('.editor'), hljs.highlightElement)
-    </script>
     <textarea id="code" style="width: 500px; height: 500px;"></textarea>
     <br/><br/>
     <button type="button" onclick="runCode()">Run Code</button>

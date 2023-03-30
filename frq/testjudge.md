@@ -9,7 +9,6 @@
 
     #editor {
         margin: 0;
-        position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
@@ -18,28 +17,29 @@
   </style>
 </head>
 
-<pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-        alert("Ace Rocks " + items[i]);
-    }
-}</pre>
 
-<!-- https://github.com/ajaxorg/ace-builds/blob/master/src-noconflict/ace.js -->
-<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/javascript");
-</script>
+
 
 <form>
-    <center>
-    <textarea id="code" style="width: 500px; height: 500px;"></textarea>
+	<center>
+	<div id="editor" style="width: 80vw; height: 500px;">public class Main {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}</div>
+    <!-- <textarea id="code" style="width: 500px; height: 500px;"></textarea> -->
     <br/><br/>
     <button type="button" onclick="runCode()">Run Code</button>
     </center>
 </form>
+
+<!-- https://github.com/ajaxorg/ace-builds/blob/master/src-noconflict/ace.js -->
+<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.13/src-min/ace.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/java");
+</script>
 
 <script>
 
@@ -47,7 +47,7 @@
 
     function runCode() {
 	const API_URL = 'https://judge0-ce.p.rapidapi.com/';
-	var code = document.getElementById("code").value;
+	var code = editor.getValue();
 
 	const headers = {
 		'content-type': 'application/json',

@@ -3,9 +3,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Editor</title>
   <style type="text/css" media="screen">
-    body {
-        overflow: hidden;
-    }
 
     #editor {
         margin: 0;
@@ -13,25 +10,63 @@
         bottom: 0;
         left: 0;
         right: 0;
+		width: 80vw; 
+		height: 500px;
+		font-size: 14px;
+		border-radius: 10px;
     }
+
+	#outputBox {
+		margin: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 80vw;
+		text-align: left;
+		font-size: 16px;
+		border-radius: 10px;
+	}
+
+	button {
+		background-color: white; 
+		border: none;
+		color: black;
+		padding: 15px 32px;
+		width: 80%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+	h1 {
+		text-align: center;
+	}
   </style>
 </head>
 
-
-
+<h1> Code Editor </h1>
 
 <form>
 	<center>
-	<div id="editor" style="width: 80vw; height: 500px;">public class Main {
+	<div id="editor">public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
 }</div>
     <!-- <textarea id="code" style="width: 500px; height: 500px;"></textarea> -->
-    <br/><br/>
+    <br/>
     <button type="button" onclick="runCode()">Run Code</button>
     </center>
 </form>
+<br/>
+<center>
+<pre id="outputBox">Code Output Here</pre>
+</center>
 
 <!-- https://github.com/ajaxorg/ace-builds/blob/master/src-noconflict/ace.js -->
 <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.13/src-min/ace.js"></script>
@@ -83,6 +118,7 @@
 							clearInterval(interval);
 							const output = atob(data.stdout);
 							console.log('Output: ' + output);
+							document.getElementById("outputBox").innerHTML = output;
 						}
 					})
 					.catch((error) => {

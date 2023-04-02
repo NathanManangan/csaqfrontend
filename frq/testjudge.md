@@ -41,6 +41,13 @@
 		margin: 4px 2px;
 		border-radius: 10px;
 		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+
+	button:hover {
+		background-color: #808080;
+		color: white;
+		transform: translateY(-2px);
 	}
 
 	h1 {

@@ -54,6 +54,15 @@
 	h1 {
 		text-align: center;
 	}
+
+	select {
+		width: 80%;
+		padding: 16px 20px;
+		margin: 16px;
+		border: none;
+		border-radius: 4px;
+		background-color: #f1f1f1;
+	}
   </style>
 </head>
 
@@ -61,6 +70,11 @@
 
 <form>
 	<center>
+	<select id="preset-select">
+		<option value="">Select a preset</option>
+		<option value="frq-1">FRQ 1</option>
+		<option value="hello-world">Hello World</option>
+	</select>
 	<div id="editor">public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
@@ -83,6 +97,64 @@
     editor.setTheme("ace/theme/twilight");
     editor.session.setMode("ace/mode/java");
 </script>
+
+<script>
+  const select = document.getElementById('preset-select');
+
+  select.addEventListener('change', function() {
+    // Get the selected option value
+    const selectedPreset = select.value;
+
+    // Update the editor content based on the selected preset
+    if (selectedPreset === 'frq-1') {
+      editor.setValue(`public class Main {  
+
+	// Distance in inches from the starting position to the goal.
+	private int goalDistance;
+
+	// Maximum number of hops allowed to reach the goal.
+	private int maxHops;
+
+	public Main(int dist, int numHops) {
+		goalDistance = dist;
+		maxHops = numHops;
+	}
+
+	// Returns an integer representing the distance, in inches, to be moved when the frog hops.
+	private int hopDistance() {
+		/* Implementation not shown */
+	}
+
+	// Simulates a frog attempting to reach the goal as described in part (a).
+	// Returns true if the frog successfully reached or passed the goal during the simulation;
+	// false otherwise.
+	public boolean simulate() {
+		/* to be implemented in part (a) */
+	}
+
+	// Runs num simulations and returns the proportion of simulations in which the frog
+	// successfully reached or passed the goal.
+	public double runSimulations(int num) {
+		/* to be implemented in part (b) */
+	}
+
+	public static void main(String[] args) {
+		Main sim = new Main(24, 5);
+	}
+}`);
+    } else if (selectedPreset === 'hello-world') {
+      editor.setValue(`public class Main {  
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}`)
+    } else {
+      // If no preset is selected, reset the editor content
+      editor.textContent = 'public class Main {\n  public static void main(String[] args) {\n    System.out.println("Hello World!");\n  }\n}';
+    }
+  });
+</script>
+
 
 <script>
 

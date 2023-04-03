@@ -11,8 +11,6 @@
     </div>
     <div id='content' class='content'>
       <button id='buttonprimary' class='buttonprimary'>
-        <div id='background3' class='background3'>
-        </div>
         <div id='text' class='text'>
           Start</div>
       </button>
@@ -121,6 +119,7 @@
     }
     
     .buttonprimary {
+      position: absolute;
       background-color:#ffffff;
       height:60px;
       width:240px;
@@ -131,15 +130,34 @@
       left:307px;
       position:absolute;
       text-align: center;
+      filter:drop-shadow(0px 8px 4px rgba(0,0,0,0.25));
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttonprimary:hover {
+        background-color: #e9f1bb;
+        transform: translate(0%, -25%);
+        transition: all 0.3s ease-in-out 0s;         
+    }
+
+    .buttonprimary:active {
+        background-color: #a1d2ac;
     }
     
     .background3 {
-      background-color:#ffffff;
-      height:60px;
-      width:240px;
-      filter:drop-shadow(0px 8px 4px rgba(0,0,0,0.25));
-      border-radius:5px;
+      
+      transition: background-color 0.3s ease;
     }
+
+    .background3:hover {
+        background-color: #e9f1bb;
+    }
+
+    .background3:active {
+        background-color: #a1d2ac;
+    }
+    
     
     .text {
       color:#274c77;

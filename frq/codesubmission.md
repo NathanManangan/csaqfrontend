@@ -5,6 +5,26 @@
   <title>Editor</title>
   <style type="text/css" media="screen">
 
+	::-webkit-scrollbar {
+	width: 8px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	background: #141414;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	background: #232323; 
+	border-radius: 4px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	background: #323232; 
+	}
+
     #editor {
         margin: 0;
         top: 0;
@@ -15,6 +35,8 @@
 		height: 500px;
 		font-size: 14px;
 		border-radius: 10px;
+		resize: vertical;
+		overflow-x: auto;
     }
 
 	#outputBox {
@@ -61,7 +83,8 @@
 		margin: 16px;
 		border: none;
 		border-radius: 4px;
-		background-color: #f1f1f1;
+		background-color: #232323;
+		color: white;
 	}
   </style>
 </head>
@@ -100,6 +123,9 @@
 
 <script>
   const select = document.getElementById('preset-select');
+  document.getElementById('editor').addEventListener("mouseup", function() {
+	resizableElement.style.height = resizableElement.clientHeight + "px";
+	});
 
   select.addEventListener('change', function() {
     // Get the selected option value

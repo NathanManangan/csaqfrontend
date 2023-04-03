@@ -235,7 +235,7 @@ categories: []
         transform: translate(-45%,-100%) rotate(-20deg);
         }
         35%,45%,50%{
-        transform: translate(-45%,-100%) rotate(0deg);
+        transform: translate(-45%,-100%) rotate(5deg);
         }
         40%{
         transform: translate(-45%,-100%) rotate(-10deg);

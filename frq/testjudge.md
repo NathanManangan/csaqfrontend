@@ -1,6 +1,7 @@
 <head>
 <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <script src="https://kit.fontawesome.com/b33dd8950a.js" crossorigin="anonymous"></script>
   <title>Editor</title>
   <style type="text/css" media="screen">
 
@@ -67,7 +68,7 @@
 }</div>
     <!-- <textarea id="code" style="width: 500px; height: 500px;"></textarea> -->
     <br/>
-    <button type="button" onclick="runCode()">Run Code</button>
+    <button id="runButton" type="button">Run Code</button>
     </center>
 </form>
 <br/>
@@ -85,57 +86,75 @@
 
 <script>
 
-    document.getElementById("code").style.width = "80vw";
+	const button = document.querySelector('#runButton');
+	const outputBox = document.getElementById("outputBox");
 
-    function runCode() {
-	const API_URL = 'https://judge0-ce.p.rapidapi.com/';
-	var code = editor.getValue();
+	function runCode() {
+		const API_URL = 'https://judge0-ce.p.rapidapi.com/';
+		var code = editor.getValue();
 
-	const headers = {
-		'content-type': 'application/json',
-		'x-rapidapi-key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
-		'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
-	};
+		button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
+		button.disabled = true;
 
-	const data = {
-		source_code: code,
-		language_id: 62, // Java language ID
-		stdin: '',
-	};
+		const headers = {
+			'content-type': 'application/json',
+			'x-rapidapi-key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
+			'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
+		};
 
-	fetch(API_URL + 'submissions', {
-		method: 'POST',
-		headers: headers,
-		body: JSON.stringify(data),
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			const submissionId = data.token;
-			// Poll for submission status until it's completed
-			let interval = setInterval(() => {
-				fetch(API_URL + `submissions/${submissionId}?base64_encoded=true`, {
-					headers: headers,
-				})
-					.then((response) => response.json())
-					.then((data) => {
-						if (data.status.id <= 2) {
-							// Status is either "queued" or "processing"
-							console.log('Status: ' + data.status.description);
-						} else {
-							clearInterval(interval);
-							const output = atob(data.stdout);
-							console.log('Output: ' + output);
-							document.getElementById("outputBox").innerHTML = output;
-						}
-					})
-					.catch((error) => {
-						console.error(error);
-					});
-			}, 1000);
+		const data = {
+			source_code: code,
+			language_id: 62, // Java language ID
+			stdin: '',
+		};
+
+		fetch(API_URL + 'submissions', {
+			method: 'POST',
+			headers: headers,
+			body: JSON.stringify(data),
 		})
-		.catch((error) => {
-			console.error(error);
-		});
-}
+			.then((response) => response.json())
+			.then((data) => {
+				const submissionId = data.token;
+				// Poll for submission status until it's completed
+				let interval = setInterval(() => {
+					fetch(API_URL + `submissions/${submissionId}?base64_encoded=true`, {
+						headers: headers,
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.status.id <= 2) {
+								// Status is either "queued" or "processing"
+								console.log('Status: ' + data.status.description);
+							} else {
+								// Status is "completed"
+								outputBox.style.color = 'white';
+								clearInterval(interval);
+								const output = atob(data.stdout);
+								console.log('Output: ' + output);
+								outputBox.innerHTML = output;
+								button.innerHTML = 'Run Code';
+								button.disabled = false;
+							}
+						})
+						.catch((error) => {
+							console.error(error);
+							outputBox.style.color = 'red';
+							outputBox.innerHTML = error;
+							button.innerHTML = 'Run Code';
+							button.disabled = false;
+						});
+				}, 1000);
+			})
+			.catch((error) => {
+				console.error(error);
+				outputBox.style.color = 'red';
+				outputBox.innerHTML = error;
+				button.innerHTML = 'Submit';
+				button.disabled = false;
+			});
+	}
+
+	button.addEventListener('click', runCode);
 </script>
 

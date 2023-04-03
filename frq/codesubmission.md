@@ -195,16 +195,14 @@
 	const outputBox = document.getElementById("outputBox");
 
 	function runCode() {
-		const API_URL = 'https://judge0-ce.p.rapidapi.com/';
+		const API_URL = 'http://34.205.167.218:2358/';
 		var code = editor.getValue();
 
 		button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
 		button.disabled = true;
 
 		const headers = {
-			'content-type': 'application/json',
-			'x-rapidapi-key': 'cd81236483mshbc05c3041f1ca4cp1cfad3jsnb28e0b499ace',
-			'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
+			'content-type': 'application/json'
 		};
 
 		const data = {

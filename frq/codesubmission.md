@@ -119,6 +119,14 @@
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
     editor.session.setMode("ace/mode/java");
+
+	ace.require("ace/ext/language_tools");
+    <!-- // enable autocompletion and snippets -->
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: false
+    });
 </script>
 
 <script>

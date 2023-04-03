@@ -22,9 +22,33 @@
   </div>
   <br>
   <br>
-</body>
+  <div style="background-color: #F2F2F2; position: relative; top:120%">
+    <div class="row">
+        <div class="column">
+            <a class="columnbox"></a>
+        </div>
+        <div class="column">
+            <a class="columnbox"></a>
+        </div>
+        <div class="column">
+            <a class="columnbox"></a>
+        </div>
+    </div>
+  </div>
 
   <style>
+    .row{
+        height: 10%;
+    }
+    .columnbox{
+        display: block;
+        border-radius: 25px;
+        background: #011627;
+        padding: 20px; 
+        width: 33%;
+        height: 100%;  
+    }
+
     body::-webkit-scrollbar {
       display: none;
     }
@@ -211,6 +235,61 @@
       style= position: relative;
       margin-top: 60%;
     }
-</style>
+
+    /* Social proof */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+
+p {
+  margin: 0;
+}
+
+.social-proof {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 1440px;
+  height: 379px;
+  padding: 68px 109px 47px 139px;
+  box-sizing: border-box;
+  background-color: rgba(242, 242, 242, 1);
+}
+.group-086 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+.subtitle22 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(39, 76, 119, 1);
+  font-size: 40px;
+  line-height: 141%;
+  font-family: Ubuntu, sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.group-454 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+}
+.logos {
+  width: 751px;
+  height: 100%;
+}
+
+.logos-1 {
+  width: 316px;
+  height: 100%;
+}
+    </style>
 
     

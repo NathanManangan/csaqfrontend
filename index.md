@@ -24,31 +24,37 @@
   </div>
   <br>
   <br>
-  <div style="background-color: #F2F2F2; position: relative; top:120%">
+  <div style="background-color: #F2F2F2; position: relative; top:120%; margin-top: 5%">
+  <br>
+  <br>
+    <a style="color:#011627; font-size:50px; margin-left: 34%; font-family: Ubuntu">Most Popular FRQs</a>
+    <br>
+    <br>
     <div class="row">
         <div class="column">
-            <a class="columnbox"></a>
+            <button class="columnbox"><img src="assets/css/images/frog.png" style="width:45%"></button>
         </div>
         <div class="column">
-            <a class="columnbox"></a>
+            <button class="columnbox"><img src="assets/css/images/game.png" style="width:70%"></button>
         </div>
         <div class="column">
-            <a class="columnbox"></a>
+            <button class="columnbox"><img src="assets/css/images/image.png" style="width:45%"></button>
         </div>
     </div>
   </div>
 
   <style>
     .row{
-        height: 10%;
+        height: 40%;
     }
     .columnbox{
         display: block;
         border-radius: 25px;
         background: #011627;
         padding: 20px; 
-        width: 33%;
-        height: 100%;  
+        width: 80%;
+        margin-left: 10%;
+        height: 80%;  
     }
 
     body::-webkit-scrollbar {

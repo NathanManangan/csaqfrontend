@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /cars/
 title: 
 search_exclude: false
 toc: false

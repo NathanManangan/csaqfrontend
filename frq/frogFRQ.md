@@ -48,6 +48,7 @@ function startSimulation() {
     var distanceGoal = document.getElementById('distanceGoal').value;
     var maxHops = document.getElementById('maxHops').value;
     var nextHopDirection = '';
+    var hmm = '--FourHundred';
 
     if (Math.round(distanceGoal) % 1 == 0 && Math.round(maxHops) % 1 == 0) {
 
@@ -85,17 +86,17 @@ function jumpSign() {
     else {
         document.getElementById('input4').innerHTML = 'right';
         nextHopDirection = 'right';
+
     }
 }
 
 function moveFrog() {
       var frog = document.getElementById("frog");
       var distance = nextHopDistance;
-      var direction = nextHopDirection;
-    //   Math.random() >= 0.5 ? 'right' : 'left'; // randomly choose a direction
-      frog.classList.add('move-' + direction); // add the appropriate CSS class based on the direction
+      var direction = nextHopDirection; // matches direction with that of button 
+      frog.classList.add('move-' + direction + nextHopDistance); // add the appropriate CSS class based on the direction
       setTimeout(function() {
-        frog.classList.remove('move-' + direction); // remove the CSS class after the animation completes
+        frog.classList.remove('move-' + direction + nextHopDistance); // remove the CSS class after the animation completes
       }, 2000);
     }
 
@@ -105,34 +106,122 @@ function moveFrog() {
 <html>
 <head>
   <style>
+    :root {
+    --FourHundred: 400px
+    }
     #frog {
       width: 100px;
       height: 100px;
       position: relative;
       left:200px;
     }
-    .move-right {
-      animation-name: moveRight;
-      animation-duration: 1s;
+    .move-right1 {
+      animation-name: moveRight1;
+      animation-duration: 2s;
     }
-    .move-left {
-      animation-name: moveLeft;
-      animation-duration: 1s;
+    .move-left1 {
+      animation-name: moveLeft1;
+      animation-duration: 2s;
     }
-    @keyframes moveRight {
+    .move-right2 {
+      animation-name: moveRight2;
+      animation-duration: 2s;
+    }
+    .move-left2 {
+      animation-name: moveLeft2;
+      animation-duration: 2s;
+    }
+    .move-right3 {
+      animation-name: moveRight3;
+      animation-duration: 2s;
+    }
+    .move-left3 {
+      animation-name: moveLeft3;
+      animation-duration: 2s;
+    }
+    .move-right4 {
+      animation-name: moveRight4;
+      animation-duration: 2s;
+    }
+    .move-left4 {
+      animation-name: moveLeft4;
+      animation-duration: 2s;
+    }
+    .move-right5 {
+      animation-name: moveRight5;
+      animation-duration: 2s;
+    }
+    .move-left5 {
+      animation-name: moveLeft5;
+      animation-duration: 2s;
+    }
+    .move-right6 {
+      animation-name: moveRight6;
+      animation-duration: 2s;
+    }
+    .move-left6 {
+      animation-name: moveLeft6;
+      animation-duration: 2s;
+    }
+    @keyframes moveRight1 {
       from {left: 200;}
-      to {left: 400px;}
+      to {left: 250;}
     }
-    @keyframes moveLeft {
+    @keyframes moveLeft1 {
+      from {left: 200;}
+      to {left: 0px;}
+    }
+    @keyframes moveRight2 {
+      from {left: 200;}
+      to {left: 300;}
+    }
+    @keyframes moveLeft2 {
+      from {left: 200;}
+      to {left: 0px;}
+    }
+    @keyframes moveRight3 {
+      from {left: 200;}
+      to {left: 350;}
+    }
+    @keyframes moveLeft3 {
+      from {left: 200;}
+      to {left: 0px;}
+    }
+    @keyframes moveRight4 {
+      from {left: 200;}
+      to {left: 400;}
+    }
+    @keyframes moveLeft4 {
+      from {left: 200;}
+      to {left: 0px;}
+    }
+    @keyframes moveRight5 {
+      from {left: 200;}
+      to {left: 450;}
+    }
+    @keyframes moveLeft5 {
+      from {left: 200;}
+      to {left: 0px;}
+    }
+    @keyframes moveRight6 {
+      from {left: 200;}
+      to {left: 500;}
+    }
+    @keyframes moveLeft6 {
       from {left: 200;}
       to {left: 0px;}
     }
   </style>
 </head>
+
 <body>
+<!-- button to move frog -->
+<div lik style="margin: 0 auto; text-align: center">
+    <button type="submit" onclick="moveFrog()">Move Frog</button>
+</div>
 <img id="frog" src="assets/css/images/frogj.png" alt="frog">
   <br>
-  <button onclick="moveFrog()">Move Frog</button>
+
     
   <script>
     

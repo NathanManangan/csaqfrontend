@@ -169,7 +169,7 @@ function moveFrog() {
     }
     @keyframes moveLeft1 {
       from {left: 200;}
-      to {left: 0px;}
+      to {left: 150px;}
     }
     @keyframes moveRight2 {
       from {left: 200;}
@@ -177,7 +177,7 @@ function moveFrog() {
     }
     @keyframes moveLeft2 {
       from {left: 200;}
-      to {left: 0px;}
+      to {left: 100px;}
     }
     @keyframes moveRight3 {
       from {left: 200;}
@@ -185,7 +185,7 @@ function moveFrog() {
     }
     @keyframes moveLeft3 {
       from {left: 200;}
-      to {left: 0px;}
+      to {left: 50px;}
     }
     @keyframes moveRight4 {
       from {left: 200;}
@@ -201,7 +201,7 @@ function moveFrog() {
     }
     @keyframes moveLeft5 {
       from {left: 200;}
-      to {left: 0px;}
+      to {left: -50px;}
     }
     @keyframes moveRight6 {
       from {left: 200;}
@@ -209,7 +209,7 @@ function moveFrog() {
     }
     @keyframes moveLeft6 {
       from {left: 200;}
-      to {left: 0px;}
+      to {left: -100px;}
     }
   </style>
 </head>

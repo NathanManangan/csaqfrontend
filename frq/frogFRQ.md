@@ -47,6 +47,7 @@ function startSimulation() {
     
     var distanceGoal = document.getElementById('distanceGoal').value;
     var maxHops = document.getElementById('maxHops').value;
+    var nextHopDirection = '';
 
     if (Math.round(distanceGoal) % 1 == 0 && Math.round(maxHops) % 1 == 0) {
 
@@ -76,19 +77,22 @@ function jumpDistance() {
 
 function jumpSign() {
     var temp = Math.floor(Math.random() * 3 + 1)
-    console.log("temp = " + temp);
+    nextHopDirection = '';
     if (temp == 1) {
-        document.getElementById('input4').innerHTML = "left";
+        document.getElementById('input4').innerHTML = 'left';
+        nextHopDirection = 'left'
     }
     else {
-        document.getElementById('input4').innerHTML = "right";
+        document.getElementById('input4').innerHTML = 'right';
+        nextHopDirection = 'right';
     }
 }
 
 function moveFrog() {
       var frog = document.getElementById("frog");
       var distance = nextHopDistance;
-      var direction = Math.random() >= 0.5 ? 'right' : 'left'; // randomly choose a direction
+      var direction = nextHopDirection;
+    //   Math.random() >= 0.5 ? 'right' : 'left'; // randomly choose a direction
       frog.classList.add('move-' + direction); // add the appropriate CSS class based on the direction
       setTimeout(function() {
         frog.classList.remove('move-' + direction); // remove the CSS class after the animation completes

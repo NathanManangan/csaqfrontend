@@ -1,0 +1,119 @@
+---
+layout: default
+title: Merge Sort Lesson
+search_exclude: false
+toc: false
+categories: []
+---
+<style>
+
+a {
+    color: #ffae00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f6ff00;
+    text-decoration: underline;
+}
+
+#editor {
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+		width: 750px; 
+		height: 250px;
+		font-size: 14px;
+		border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+		resize: vertical;
+		overflow-x: auto;
+    }
+
+    ::-webkit-scrollbar {
+	width: 8px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	background: #141414;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	background: #4a4a4a; 
+	border-radius: 4px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	background: #323232; 
+	}
+
+</style>
+
+<div class="wrapper">
+
+<h1> Topic 1 - Merge Sort </h1>
+
+<h2> Introduction </h2>
+
+<p>Merge sort is a sorting algorithm to sort arrays. It divides the array into two parts, 
+    repeats the same process on the two parts, then merges all of these sorted arrays 
+    by sorting them as it merges. </p>
+
+<h2>How to implement</h2>
+
+<p>The most efficient way to implement mergesort is as a recursive function. 
+    It takes in an array, splits in half, and calls the sort function again on each half. 
+    Then, once the sort goes all the way to the lowest division of numbers (where each number is by itself), 
+    it begins merging the numbers back together.
+</p>
+
+<a href="/csaqfrontend/frq/codesubmission">Runtime Example</a>
+<br/>
+<br/>
+
+
+<h3>Closer Look - sort() method</h3>
+
+<p>Take a moment to examine the main recursive method of mergesort. Add comments in the indicated lines</p>
+
+<div id="editor">void sort(int arr[], int l, int r)
+{
+    if (l < r) {
+        // COMMENT A
+        int m = l + (r - l) / 2;
+
+        // COMMENT B
+        sort(arr, l, m);
+        sort(arr, m + 1, r);
+
+        // COMMENT C
+        merge(arr, l, m, r);
+    }
+}</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.13/src-min/ace.js"></script>
+<script>
+	ace.require("ace/ext/language_tools");
+    var editorA = ace.edit("editor");
+    editorA.setTheme("ace/theme/twilight");
+    editorA.session.setMode("ace/mode/java");
+    editorA.setReadOnly(true);
+    <!-- // enable autocompletion and snippets -->
+    editorA.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: false
+    });
+</script>
+
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSelD5Zp5EFnR3aMQcCSMJN-OZiGGY8OkZspYY2Qm3nUOv5xyQ/viewform?embedded=true"
+ width="750" height="300" frameborder="0" marginheight="0" marginwidth="0" 
+ style="background-color: #141414; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Loading…</iframe>
+
+</div>

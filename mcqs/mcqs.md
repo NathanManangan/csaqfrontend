@@ -1,11 +1,10 @@
 # List Of MC Questions
 
 <body>
-
 </body>
 
 <script>
-    url = "http://localhost:8085/api/stats/get/";
+    url = "http://localhost:8085/api/mcq/get/";
 
     // set options for cross origin header request
     const options = {

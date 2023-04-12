@@ -199,14 +199,14 @@
     void sort(int arr[], int l, int r)
     {
         if (l < r) {
-            // Find the middle point
+            // COMMENT A
             int m = l + (r - l) / 2;
  
-            // Sort first and second halves
+            // COMMENT B
             sort(arr, l, m);
             sort(arr, m + 1, r);
  
-            // Merge the sorted halves
+            // COMMENT C
             merge(arr, l, m, r);
         }
     }
@@ -231,7 +231,7 @@
         Main ob = new Main();
         ob.sort(arr, 0, arr.length - 1);
  
-        System.out.println("\nSorted array");
+        System.out.println("\\nSorted array");
         printArray(arr);
     }
 }`);

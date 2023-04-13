@@ -101,11 +101,11 @@
         z-index: 200;
         }
         .car__wheel{
-        --r:18vmin;
+        --r:10vmin;
         width: var(--r);
         height:var(--r);
         border-radius: 50%;
-        border: 1.8vmin solid #323232;
+        border: 1.8vmin solid #00A64C;
         background-color: #24EA21;
         position: relative;
         animation: run .5s 1s linear infinite;
@@ -119,14 +119,14 @@
         width:var(--r);
         height:var(--r);
         border-radius: 50%;
-        background-color: #323232;
+        background-color: #00A64C;
         }
         .wheel__rect{
         position: absolute;
         width: 2.8vmin;
         height: 3.1vmin;
         clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
-        background-color: #323232;
+        background-color: #00A64C;
         }
         .wheel__rect--1{
         top: 30%;
@@ -162,7 +162,7 @@
         width: 50px;
         height: 50px;
         position: absolute;
-        background-color: red;
+        background-color: green;
         }
         .cloud{
         position: absolute;
@@ -214,10 +214,40 @@
         }
         }
         @keyframes start-car {
-        0%,10%,20%{
+        0%{
+        transform: translate(-50%, -100%);
+        }
+        10%{
+        transform: translate(-50%,-250%);
+        }
+        20%{
         transform: translate(-50%,-100%);
         }
-        5%{
+        30%{
+        transform: translate(-50%,-250%);
+        }
+        40%{
+        transform: translate(-50%,-100%);
+        }
+        50%{
+        transform: translate(-50%,-250%);
+        }
+        60%{
+        transform: translate(-50%, -100%);
+        }
+        70%{
+        transform: translate(-50%,-250%);
+        }
+        80%{
+        transform: translate(-50%,-100%);
+        }
+        90%{
+        transform: translate(-50%,-250%);
+        }
+        100%{
+        transform: translate(-50%,-100%);
+        }
+        /* 5%{
         transform: translate(-40%,-100%);
         }
         15%{
@@ -240,7 +270,7 @@
         }
         100%{
         transform: translate(-50%,-100%) rotate(0deg);
-        }
+        } */
         }
     </style>
 </head>
@@ -273,9 +303,9 @@
         </div>
         </div>
         </div>
-        <div class="cloud" style="--delay:3s;--top:10vmin"></div>
-        <div class="cloud" style="--delay:6s;--top:20vmin"></div>
-        <div class="cloud" style="--delay:10s;--top:10vmin"></div>
+        <div class="cloud" style="--delay:1s;--top:10vmin"></div>
+        <div class="cloud" style="--delay:4s;--top:20vmin"></div>
+        <div class="cloud" style="--delay:8s;--top:10vmin"></div>
 </body>
 </html>
 <footer>

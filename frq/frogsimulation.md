@@ -284,9 +284,37 @@
         <div class="cloud" style="--delay:3s;--top:10vmin"></div>
         <div class="cloud" style="--delay:5s;--top:20vmin"></div>
         <div class="cloud" style="--delay:5.5s;--top:10vmin"></div>
-</body>
+    </body>
 </html>
 
 <footer>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </footer>

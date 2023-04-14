@@ -253,7 +253,7 @@
  const button = document.querySelector('#runButton');
  const outputBox = document.getElementById("outputBox");
  function runCode() {
-  const API_URL = 'http://localhost:8085/j0/run/';
+  const API_URL = 'https://csaq.aadit.dev/j0/run/';
   var code = editor.getValue();
   // encode code variable to base64
   code2 = btoa(code);

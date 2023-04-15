@@ -19,12 +19,14 @@
         }
         .car{
         position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%,-100%);
-        transform-origin: 25% bottom;
-        animation: start-car 2.5s 1.1s;
+        top: 52.5%;
+        left: 40%;
+        /* transform: translate(-50%,-100%); */
+        /* transform-origin: 25% bottom; */
+        animation: start-car 8.5s 2.1s;
         z-index: 100;
+        animation-iteration-count: 2;
+        animation-direction: alternate;
         }
         /* .car__top{
         margin-left: 10vmin;
@@ -101,11 +103,11 @@
         z-index: 200;
         }
         .car__wheel{
-        --r:18vmin;
+        --r:10vmin;
         width: var(--r);
         height:var(--r);
         border-radius: 50%;
-        border: 1.8vmin solid #323232;
+        border: 1.8vmin solid #00A64C;
         background-color: #24EA21;
         position: relative;
         animation: run .5s 1s linear infinite;
@@ -119,14 +121,14 @@
         width:var(--r);
         height:var(--r);
         border-radius: 50%;
-        background-color: #323232;
+        background-color: #00A64C;
         }
         .wheel__rect{
         position: absolute;
         width: 2.8vmin;
         height: 3.1vmin;
         clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
-        background-color: #323232;
+        background-color: #00A64C;
         }
         .wheel__rect--1{
         top: 30%;
@@ -162,7 +164,7 @@
         width: 50px;
         height: 50px;
         position: absolute;
-        background-color: red;
+        background-color: green;
         }
         .cloud{
         position: absolute;
@@ -214,10 +216,70 @@
         }
         }
         @keyframes start-car {
-        0%,10%,20%{
-        transform: translate(-50%,-100%);
+        0%{
+        transform: translate(0%, 0%);
         }
         5%{
+            transform: translate(-30%, -175%);
+        }
+        10%{
+            transform: translate(-50%, 0%);
+        }
+        15%{
+        transform: translate(-80%,-175%);
+        }
+        20%{
+        transform: translate(-100%,0%);
+        }
+        25%{
+        transform: translate(-130%,-175%);
+        }
+        30%{
+        transform: translate(-150%,0%);
+        }
+        35%{
+        transform: translate(-120%,-175%);
+        }
+        40%{
+        transform: translate(-100%, 0%);
+        }
+        45%{
+        transform: translate(-70%,-175%);
+        }
+        50%{
+        transform: translate(-50%,0%);
+        }
+        55%{
+        transform: translate(-20%,-175%);
+        }
+        60%{
+            transform: translate(0%, 0%);
+        }
+        65%{
+            transform: translate(30%, -175%);
+        }
+        70%{
+            transform: translate(50%, 0%);
+        }
+        75%{
+            transform: translate(80%, -175%);
+        }
+        80%{
+            transform: translate(100%, 0%);
+        }
+        85%{
+            transform: translate(70%, -175%);
+        }
+        90%{
+            transform: translate(50%, 0%);
+        }
+        95%{
+            transform: translate(20%, -175%);
+        }
+        100%{
+        transform: translate(0%,0%);
+        }
+        /* 5%{
         transform: translate(-40%,-100%);
         }
         15%{
@@ -240,7 +302,7 @@
         }
         100%{
         transform: translate(-50%,-100%) rotate(0deg);
-        }
+        } */
         }
     </style>
 </head>
@@ -273,11 +335,39 @@
         </div>
         </div>
         </div>
-        <div class="cloud" style="--delay:3s;--top:10vmin"></div>
-        <div class="cloud" style="--delay:6s;--top:20vmin"></div>
-        <div class="cloud" style="--delay:10s;--top:10vmin"></div>
+        <div class="cloud" style="--delay:1s;--top:10vmin"></div>
+        <div class="cloud" style="--delay:4s;--top:20vmin"></div>
+        <div class="cloud" style="--delay:8s;--top:10vmin"></div>
 </body>
 </html>
 <footer>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </footer>

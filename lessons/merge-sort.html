@@ -1,0 +1,232 @@
+---
+layout: default
+title: Merge Sort Lesson
+search_exclude: false
+toc: false
+categories: []
+---
+<style>
+
+a {
+    color: #ffae00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f6ff00;
+    text-decoration: underline;
+}
+
+table {
+    border: 1px solid #000;
+    width: 100%;
+}
+td {
+    border: 1px solid #000;
+    background-color: #1d3b5d;
+}
+th {
+    border: 1px solid #000;
+    background-color: #ffae00;
+    color: black
+}
+
+#editor, #editorB {
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+		width: 750px; 
+		height: 250px;
+		font-size: 14px;
+		border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+		resize: vertical;
+		overflow-x: auto;
+    }
+
+    ::-webkit-scrollbar {
+	width: 8px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	background: #141414;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	background: #4a4a4a; 
+	border-radius: 4px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	background: #323232; 
+	}
+
+</style>
+
+<div class="wrapper">
+
+<h1> Topic 1 - Merge Sort </h1>
+
+<h2> Introduction </h2>
+
+<p>Merge sort is a sorting algorithm to sort arrays. It divides the array into two parts, 
+    repeats the same process on the two parts, then merges all of these sorted arrays 
+    by sorting them as it merges. </p>
+
+<h2>How to implement</h2>
+
+<p>The most efficient way to implement mergesort is as a recursive function. 
+    It takes in an array, splits in half, and calls the sort function again on each half. 
+    Then, once the sort goes all the way to the lowest division of numbers (where each number is by itself), 
+    it begins merging the numbers back together.
+</p>
+
+<a href="/csaqfrontend/frq/codesubmission">Runtime Example</a>
+<br/>
+<br/>
+
+
+<h3>Closer Look - sort() method</h3>
+
+<p>Take a moment to examine the main recursive method of mergesort. Add comments in the indicated lines</p>
+
+<div id="editor">void sort(int arr[], int l, int r)
+{
+    if (l < r) {
+        // COMMENT A
+        int m = l + (r - l) / 2;
+
+        // COMMENT B
+        sort(arr, l, m);
+        sort(arr, m + 1, r);
+
+        // COMMENT C
+        merge(arr, l, m, r);
+    }
+}</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.13/src-min/ace.js"></script>
+<script>
+	ace.require("ace/ext/language_tools");
+    var editorA = ace.edit("editor");
+    editorA.setTheme("ace/theme/twilight");
+    editorA.session.setMode("ace/mode/java");
+    editorA.setReadOnly(true);
+    <!-- // enable autocompletion and snippets -->
+    editorA.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: false
+    });
+</script>
+
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSelD5Zp5EFnR3aMQcCSMJN-OZiGGY8OkZspYY2Qm3nUOv5xyQ/viewform?embedded=true"
+ width="750" height="300" frameborder="0" marginheight="0" marginwidth="0" 
+ style="background-color: #141414; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Loading…</iframe>
+
+<br/>
+<br/>
+
+<h3>Closer Look - merge() method</h3>
+
+<p>Let's take a moment to do this one together. There are missing code chunks in here that we need to complete to make the merge method functional. We'll head over to the <a href="/csaqfrontend/frq/codesubmission">Runtime</a> to test it out.</p>
+
+<div id="editorB" style="height: 850px">void merge(int arr[], int l, int m, int r)
+    {
+        // Find the sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        /* Create temp arrays */
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        /* Copy data to temp arrays */
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        /* Merge the temp arrays */
+
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                // MISSING CODE #1
+            }
+            else {
+                // MISSING CODE #2
+            }
+            k++;
+        }
+
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }</div>
+<script>
+    var editorB = ace.edit("editorB");
+    editorB.setTheme("ace/theme/twilight");
+    editorB.session.setMode("ace/mode/java");
+    <!-- // enable autocompletion and snippets -->
+    editorB.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: false
+    });
+</script>
+
+<br/>
+<br/>
+
+<h3>Hacks and Point Distribution</h3>
+
+<p>The merge sort part of the lesson makes up 50% of the points (so it is out of 1.5 on our grading)</p>
+<table>
+    <tr><th>Hack</th><th>Points</th></tr>
+    <tr><td>Merge Sort Hack #1</td><td>1.00</td></tr>
+    <tr><td>In-Class Lesson Participation</td><td>0.35</td></tr>
+    <tr><td>Extra Credit - Merge Sort Hack #2</td><td>0.15</td></tr>
+</table>
+
+<h4>Merge Sort Hack #1</h4>
+
+<p>
+- Use the integer mergesort that we created and adapt it to sort an array of Java String objects. We recommend using the compareTo() method of the String class for this.
+</p>
+
+<h4>Extra Credit Merge Sort Hack #2</h4>
+
+<p>
+- <b>Option 1:</b> Use the integer mergesort that we created and adapt it to use any other (non-primitive) object type. It should be clear how these objects are being sorted by the merge sort.
+<br/>
+- <b>Option 2:</b> Create your own merge sort hack. It should be clear how this is related to merge sort and how it is sorting the data.
+</p>
+
+<h4>Submission</h4>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcgXda46Osn-DSTOkKFpnPU-cFzihdeTYK3U7LJ_u8RfmatQ/viewform?embedded=true"
+ width="750" height="600" frameborder="0" marginheight="0" marginwidth="0"
+ style="background-color: #141414; border-radius: 10px;">Loading…</iframe>
+
+
+</div>  

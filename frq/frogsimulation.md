@@ -1,11 +1,12 @@
----
-layout: default
-title: 
-search_exclude: false
-toc: false
-categories: []
----
-!DOCTYPE<html>
+
+<!-- # layout: default
+# permalink: /cars/
+# title: 
+# search_exclude: false
+# toc: false
+# categories: [] -->
+
+<html>
 <head>
     <style>
     {
@@ -115,7 +116,7 @@ categories: []
         border: 1.8vmin solid #323232;
         background-color: #fff;
         position: relative;
-        animation: run .5s 1s linear infinite;
+        animation: run .4s 1s linear infinite;
         }
         .wheel__circle{
         --r:2.4vmin;
@@ -176,11 +177,11 @@ categories: []
         top: var(--top);
         left: 0;
         width: 20vmin;
-        height: 10vmin;
+        height: 13vmin;
         border-radius: 10vmin 10vmin 0 6vmin;
         background-color: #b5edf9;
-        -webkit-animation: cloud 10s var(--delay) linear infinite backwards;
-        animation: cloud 10s var(--delay) linear infinite backwards;
+        -webkit-animation: cloud 5s var(--delay) linear infinite backwards;
+        animation: cloud 5s var(--delay) linear infinite backwards;
         }
         .cloud::after {
         content: "";
@@ -235,7 +236,7 @@ categories: []
         }
         35%,45%,50%{
         transform: translate(-45%,-100%) rotate(0deg);
-        } 
+        }
         40%{
         transform: translate(-45%,-100%) rotate(-10deg);
         }
@@ -280,8 +281,40 @@ categories: []
         </div>
         </div>
         </div>
-        <div class="cloud" style="--delay:1s;--top:10vmin"></div>
-        <div class="cloud" style="--delay:3s;--top:20vmin"></div>
-        <div class="cloud" style="--delay:7s;--top:10vmin"></div>
-</body>
+        <div class="cloud" style="--delay:3s;--top:10vmin"></div>
+        <div class="cloud" style="--delay:5s;--top:20vmin"></div>
+        <div class="cloud" style="--delay:5.5s;--top:10vmin"></div>
+    </body>
 </html>
+
+<footer>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</footer>

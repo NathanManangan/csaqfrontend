@@ -13,16 +13,16 @@
 	::-webkit-scrollbar-track {
 	background: #141414;
 	}
-	
+
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-	background: #4a4a4a; 
+	background: #4a4a4a;
 	border-radius: 4px;
 	}
 
 	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
-	background: #323232; 
+	background: #323232;
 	}
 
     #editor {
@@ -31,7 +31,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-		width: 80vw; 
+		width: 80vw;
 		height: 500px;
 		font-size: 14px;
 		border-radius: 10px;
@@ -52,7 +52,7 @@
 	}
 
 	button {
-		background-color: white; 
+		background-color: white;
 		border: none;
 		color: black;
 		padding: 15px 32px;
@@ -95,7 +95,7 @@
 	<center>
 	<select id="preset-select">
 		<option value="">Select a preset</option>
-		<option value="frq-1">FRQ 1</option>
+		<option value="merge-sort">Merge Sort</option>
 		<option value="hello-world">Hello World</option>
 	</select>
 	<div id="editor">public class Main {
@@ -139,44 +139,102 @@
     const selectedPreset = select.value;
 
     // Update the editor content based on the selected preset
-    if (selectedPreset === 'frq-1') {
-      editor.setValue(`public class Main {  
+    if (selectedPreset === 'merge-sort') {
+      editor.setValue(`class Main {
+    // Merges two subarrays of arr[].
+    // First subarray is arr[l..m]
+    // Second subarray is arr[m+1..r]
+    void merge(int arr[], int l, int m, int r)
+    {
+        // Find the sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
 
-	// Distance in inches from the starting position to the goal.
-	private int goalDistance;
+        /* Create temp arrays */
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+ 
+        /* Copy data to temp arrays */
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
 
-	// Maximum number of hops allowed to reach the goal.
-	private int maxHops;
+        /* Merge the temp arrays */
 
-	public Main(int dist, int numHops) {
-		goalDistance = dist;
-		maxHops = numHops;
-	}
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
 
-	// Returns an integer representing the distance, in inches, to be moved when the frog hops.
-	private int hopDistance() {
-		/* Implementation not shown */
-	}
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                // MISSING CODE #1
+            }
+            else {
+                // MISSING CODE #2
+            }
+            k++;
+        }
 
-	// Simulates a frog attempting to reach the goal as described in part (a).
-	// Returns true if the frog successfully reached or passed the goal during the simulation;
-	// false otherwise.
-	public boolean simulate() {
-		/* to be implemented in part (a) */
-	}
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
 
-	// Runs num simulations and returns the proportion of simulations in which the frog
-	// successfully reached or passed the goal.
-	public double runSimulations(int num) {
-		/* to be implemented in part (b) */
-	}
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
 
-	public static void main(String[] args) {
-		Main sim = new Main(24, 5);
-	}
+    // Main function that sorts arr[l..r] using
+    // merge()
+    void sort(int[] arr, int l, int r)
+    {
+        if (l < r) {
+            // COMMENT A
+            int m = l + (r - l) / 2;
+
+            // COMMENT B
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            // COMMENT C
+            merge(arr, l, m, r);
+        }
+    }
+
+    /* A utility function to print array of size n */
+    static void printArray(int[] arr)
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+    // Driver code
+    public static void main(String args[])
+    {
+        int[] arr = { 12, 11, 13, 5, 6, 7 };
+ 
+        System.out.println("Given Array");
+        printArray(arr);
+
+        Main ob = new Main();
+        ob.sort(arr, 0, arr.length - 1);
+
+        System.out.println("\\nSorted array");
+        printArray(arr);
+    }
 }`);
     } else if (selectedPreset === 'hello-world') {
-      editor.setValue(`public class Main {  
+      editor.setValue(`public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
@@ -190,74 +248,58 @@
 
 
 <script>
+ const button = document.querySelector('#runButton');
+ const outputBox = document.getElementById("outputBox");
+ function runCode() {
+  const API_URL = 'https://csaq.aadit.dev/j0/run/';
+  var code = editor.getValue();
+  // encode code variable to base64
+  code2 = btoa(code);
+  console.log(code2);
 
-	const button = document.querySelector('#runButton');
-	const outputBox = document.getElementById("outputBox");
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
+  button.disabled = true;
 
-	function runCode() {
-		const API_URL = 'http://34.205.167.218:2358/';
-		var code = editor.getValue();
+  const headers = {
+   'content-type': 'application/json'
+  };
 
-		button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
-		button.disabled = true;
+  const data = {
+   code: code2,
+  };
 
-		const headers = {
-			'content-type': 'application/json'
-		};
+  fetch(API_URL, {
+   method: 'POST',
+   headers: headers,
+   body: JSON.stringify(data),
+  })
+   .then((response) => response.text())
+   .then((data) => {
+    outputBox.style.color = 'white';
+	console.log('Output: ' + data);
+	outputBox.innerHTML = data;
+	button.innerHTML = 'Run Code';
+	button.disabled = false;
+   })
+   .catch((error) => {
+    console.error(error);
+    outputBox.style.color = 'red';
+    outputBox.innerHTML = error;
+    button.innerHTML = 'Submit';
+    button.disabled = false;
+   });
+ }
 
-		const data = {
-			source_code: code,
-			language_id: 62, // Java language ID
-			stdin: '',
-		};
-
-		fetch(API_URL + 'submissions', {
-			method: 'POST',
-			headers: headers,
-			body: JSON.stringify(data),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				const submissionId = data.token;
-				// Poll for submission status until it's completed
-				let interval = setInterval(() => {
-					fetch(API_URL + `submissions/${submissionId}?base64_encoded=true`, {
-						headers: headers,
-					})
-						.then((response) => response.json())
-						.then((data) => {
-							if (data.status.id <= 2) {
-								// Status is either "queued" or "processing"
-								console.log('Status: ' + data.status.description);
-							} else {
-								// Status is "completed"
-								outputBox.style.color = 'white';
-								clearInterval(interval);
-								const output = atob(data.stdout);
-								console.log('Output: ' + output);
-								outputBox.innerHTML = output;
-								button.innerHTML = 'Run Code';
-								button.disabled = false;
-							}
-						})
-						.catch((error) => {
-							console.error(error);
-							outputBox.style.color = 'red';
-							outputBox.innerHTML = error;
-							button.innerHTML = 'Run Code';
-							button.disabled = false;
-						});
-				}, 1000);
-			})
-			.catch((error) => {
-				console.error(error);
-				outputBox.style.color = 'red';
-				outputBox.innerHTML = error;
-				button.innerHTML = 'Submit';
-				button.disabled = false;
-			});
-	}
-
-	button.addEventListener('click', runCode);
+ button.addEventListener('click', runCode);
 </script>
 
+
+<!-- 
+MISSING CODE 1
+arr[k] = L[i];
+i++;
+
+MISSING CODE 2
+arr[k] = R[j];
+j++;
+-->

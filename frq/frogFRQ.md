@@ -219,7 +219,7 @@ function moveFrog() {
 <div lik style="margin: 0 auto; text-align: center">
     <button type="submit" onclick="moveFrog()">Move Frog</button>
 </div>
-<img id="frog" src="assets/css/images/frogj.png" alt="frog">
+<img id="frog" src="frogj.png" alt="frog">
   <br>
 
     

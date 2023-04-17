@@ -252,7 +252,7 @@
 	const outputBox = document.getElementById("outputBox");
 
 	function runCode() {
-		const API_URL = 'https://34.205.167.218:2358/';
+		const API_URL = 'https://judge0.nighthawkcodingsociety.com/';
 		var code = editor.getValue();
 
 		button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';

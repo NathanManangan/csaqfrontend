@@ -25,8 +25,9 @@
         /* transform-origin: 25% bottom; */
         animation: start-car 8.5s 2.1s;
         z-index: 100;
-        animation-iteration-count: 2;
+        animation-iteration-count: infinite;
         animation-direction: alternate;
+        animation-play-state: running;
         }
         /* .car__top{
         margin-left: 10vmin;
@@ -199,7 +200,11 @@
         transform: translateX(6vmin);
         background-color: #b5edf9;
         }
-        @keyframes cloud {
+        .car:hover { 
+            animation-play-state: paused;
+            opacity: 50%;
+        }
+@keyframes cloud {
         0%{
         transform: translateX(100vw);
         }
@@ -314,7 +319,7 @@
         <div class="car__bulb car__bulb--back"></div>
         <div class="car__center"></div>
         </div>
-        <div class="car__wheels">
+    <div class="car__wheels">
         <div class="car__wheel car__wheel--1">
         <div class="wheel__circle"></div>
         <div class="wheel__rect wheel__rect--1"></div>
@@ -324,7 +329,7 @@
         <div class="wheel__rect wheel__rect--5"></div>
         <div class="wheel__rect wheel__rect--6"></div>
         </div>
-        <div class="car__wheel car__wheel--2">
+    <div class="car__wheel car__wheel--2">
         <div class="wheel__circle"></div>
         <div class="wheel__rect wheel__rect--1"></div>
         <div class="wheel__rect wheel__rect--2"></div>

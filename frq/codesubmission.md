@@ -270,7 +270,7 @@
 
 		fetch(API_URL + 'submissions', {
 			method: 'POST',
-			mode: 'no-cors',
+			mode: 'cors',
 			headers: headers,
 			body: JSON.stringify(data),
 		})

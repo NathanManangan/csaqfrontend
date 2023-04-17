@@ -249,48 +249,73 @@
 
 <script>
  const button = document.querySelector('#runButton');
- const outputBox = document.getElementById("outputBox");
- function runCode() {
-  const API_URL = 'https://csaq.aadit.dev/j0/run/';
-  var code = editor.getValue();
-  // encode code variable to base64
-  code2 = btoa(code);
-  console.log(code2);
+	const outputBox = document.getElementById("outputBox");
 
-  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
-  button.disabled = true;
+	function runCode() {
+		const API_URL = 'http://34.205.167.218:2358/';
+		var code = editor.getValue();
 
-  const headers = {
-   'content-type': 'application/json'
-  };
+		button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running Code...';
+		button.disabled = true;
 
-  const data = {
-   code: code2,
-  };
+		const headers = {
+			'content-type': 'application/json'
+		};
 
-  fetch(API_URL, {
-   method: 'POST',
-   headers: headers,
-   body: JSON.stringify(data),
-  })
-   .then((response) => response.text())
-   .then((data) => {
-    outputBox.style.color = 'white';
-	console.log('Output: ' + data);
-	outputBox.innerHTML = data;
-	button.innerHTML = 'Run Code';
-	button.disabled = false;
-   })
-   .catch((error) => {
-    console.error(error);
-    outputBox.style.color = 'red';
-    outputBox.innerHTML = error;
-    button.innerHTML = 'Submit';
-    button.disabled = false;
-   });
- }
+		const data = {
+			source_code: code,
+			language_id: 62, // Java language ID
+			stdin: '',
+		};
 
- button.addEventListener('click', runCode);
+		fetch(API_URL + 'submissions', {
+			method: 'POST',
+			headers: headers,
+			body: JSON.stringify(data),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				const submissionId = data.token;
+				// Poll for submission status until it's completed
+				let interval = setInterval(() => {
+					fetch(API_URL + `submissions/${submissionId}?base64_encoded=true`, {
+						headers: headers,
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.status.id <= 2) {
+								// Status is either "queued" or "processing"
+								console.log('Status: ' + data.status.description);
+							} else {
+								// Status is "completed"
+								outputBox.style.color = 'white';
+								clearInterval(interval);
+								const output = atob(data.stdout);
+								console.log('Output: ' + output);
+								outputBox.innerHTML = output;
+								button.innerHTML = 'Run Code';
+								button.disabled = false;
+							}
+						})
+						.catch((error) => {
+							console.error(error);
+							outputBox.style.color = 'red';
+							outputBox.innerHTML = error;
+							button.innerHTML = 'Run Code';
+							button.disabled = false;
+						});
+				}, 1000);
+			})
+			.catch((error) => {
+				console.error(error);
+				outputBox.style.color = 'red';
+				outputBox.innerHTML = error;
+				button.innerHTML = 'Submit';
+				button.disabled = false;
+			});
+	}
+
+	button.addEventListener('click', runCode);
 </script>
 
 

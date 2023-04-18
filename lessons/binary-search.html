@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Binary Sort Lesson
+title: Binary Search Lesson
 search_exclude: false
 toc: false
 categories: []
@@ -74,4 +74,152 @@ th {
 
 <h2> Introduction </h2>
 
-<p>You search but with binary</p>
+<p>Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half. 
+    This topic can be tested on the AP Exam but it isnt commonly seen. </p>
+
+<h2>Conditions</h2>
+
+<p> 
+- The data structure must be sorted. There are multiple ways to sort but the algorithm needs to be built for whichever search it is running.
+</p>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220309171621/BinarySearch.png"><br/>
+
+
+<h3>More In Depth</h3>
+
+
+
+<div id="editor">class BinarySearch {
+    // Returns index of x if it is present in arr[],
+    // else return -1
+    int binarySearch(int arr[], int x)
+    {
+        int l = 0, r = arr.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+ 
+            // Check if x is present at mid
+            if (arr[m] == x)
+                return m;
+ 
+            // If x greater, ignore left half
+            if (arr[m] < x)
+                l = m + 1;
+ 
+            // If x is smaller, ignore right half
+            else
+                r = m - 1;
+        }
+ 
+        // if we reach here, then element was
+        // not present
+        return -1;
+    }
+ 
+    // Driver method to test above
+    public static void main(String args[])
+    {
+        BinarySearch ob = new BinarySearch();
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 10;
+        int result = ob.binarySearch(arr, x);
+        if (result == -1)
+            System.out.println(
+                "Element is not present in array");
+        else
+            System.out.println("Element is present at "
+                               + "index " + result);
+    }
+}</div>
+
+
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSelD5Zp5EFnR3aMQcCSMJN-OZiGGY8OkZspYY2Qm3nUOv5xyQ/viewform?embedded=true"
+ width="750" height="300" frameborder="0" marginheight="0" marginwidth="0" 
+ style="background-color: #141414; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Loading…</iframe>
+
+<br/>
+<br/>
+
+<h3>Closer Look - merge() method</h3>
+
+<p>Let's take a moment to do this one together. There are missing code chunks in here that we need to complete to make the merge method functional. We'll head over to the <a href="/csaqfrontend/frq/codesubmission">Runtime</a> to test it out.</p>
+
+<div id="editorB" style="height: 850px">void merge(int arr[], int l, int m, int r)
+    {
+        // Find the sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        /* Create temp arrays */
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        /* Copy data to temp arrays */
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        /* Merge the temp arrays */
+
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                // MISSING CODE #1
+            }
+            else {
+                // MISSING CODE #2
+            }
+            k++;
+        }
+
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }</div>
+
+<br/>
+<br/>
+
+<h3>Hacks</h3>
+
+<p>The merge sort part (Lab #1) of the lesson makes up 50% of the points (so it is out of 1.5 on our grading)</p>
+<table>
+    <tr><th>Hack</th><th>Points</th></tr>
+    <tr><td>Merge Sort Hack #1</td><td>1.00</td></tr>
+    <tr><td>In-Class Lesson Participation</td><td>0.35</td></tr>
+    <tr><td>Extra Credit - Merge Sort Hack #2</td><td>0.15</td></tr>
+</table>
+
+<h4>Merge Sort Hack #1</h4>
+
+<p>
+- Use the integer mergesort that we created and adapt it to sort an array of Java String objects. We recommend using the compareTo() method of the String class for this.
+</p>
+
+<h4>Extra Credit Merge Sort Hack #2</h4>
+
+<p>
+- <b>Option 1:</b> Use the integer mergesort that we created and adapt it to use any other (non-primitive) object type. It should be clear how these objects are being sorted by the merge sort.
+<br/>
+- <b>Option 2:</b> Create your own merge sort hack. It should be clear how this is related to merge sort and how it is sorting the data.
+</p>
+
+
+</div>  

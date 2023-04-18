@@ -128,6 +128,43 @@ th {
 
 <img src="https://i.pinimg.com/originals/65/1d/4c/651d4c2c1cd7263d01b131792819aa7a.png" width="1000" height="600"><br/>
 
+<br>
+<br>
+
+<div id="editor" style="height: 380px">public static int binarySearch(int[] arr, int key) {
+		int low = 0;
+		int high = arr.length - 1;
+	
+		while (low <= high) {
+			int mid = (low + high) / 2;
+	
+			if (arr[mid] == key) {
+				return mid;
+			} else if (arr[mid] < key) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
+			}
+	}
+	
+		return -1; // indicates that the key was not found
+	}</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.13/src-min/ace.js"></script>
+	<script>
+		ace.require("ace/ext/language_tools");
+		var editorA = ace.edit("editor");
+		editorA.setTheme("ace/theme/twilight");
+		editorA.session.setMode("ace/mode/java");
+		editorA.setReadOnly(true);
+		<!-- // enable autocompletion and snippets -->
+		editorA.setOptions({
+			enableBasicAutocompletion: true,
+			enableSnippets: true,
+			enableLiveAutocompletion: false
+		});
+	</script>
+
 
 
 <br>
@@ -149,6 +186,33 @@ What is the worst-case scenario for binary search in Java?
 <li>The element being searched for is at the end of the array</li>
 <li>The element being searched for is not in the array</li>
 <li>The element being searched for is in the middle of the array</li>
+</ol>
+
+<br>
+<ol>
+Which of the following data structures is best suited for binary search?
+<li>Linked List</li>
+<li>Array</li>
+<li>Stack</li>
+<li>Queue</li>
+</ol>
+
+<br>
+<ol>
+What is returned if the target is not present in the array?
+<li>False</li>
+<li>0</li>
+<li>-1</li>
+<li>The index of the element closest in value to the target</li>
+</ol>
+
+<br>
+<ol>
+What is returned if the target is present multiple times in the array?
+<li>Binary Search does not work with duplicate values</li>
+<li>The index of the first occurrence will be returned</li>
+<li>The index of the middle occurrence will be returned</li>
+<li>The index of one of the occurrences will be returned</li>
 </ol>
 
 <br>

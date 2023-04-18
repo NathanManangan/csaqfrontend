@@ -85,55 +85,24 @@ th {
 </p>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220309171621/BinarySearch.png"><br/>
 
+<h3>More of how it works </h3>
+<p>
+- Set the low index to the first element of the array and the high index to the last element
+- Next, set the middle index by averaging the low and high index 
+	- this will look like (high+low)/2
+- If the element at the middle index is the target element, return the middle index
+	- If not begin the search by creating the two halves of the index 
+	- If the number is less than the element at the middle index, set the high index to middle index – 1
+	- If the number is greater than the element at the middle index, set the low index to middle index + 1
+- Repeat the previous steps until the wanted number is found
+</p>
+
+
 
 <h3>More In Depth</h3>
 
+<img src="https://i.pinimg.com/originals/65/1d/4c/651d4c2c1cd7263d01b131792819aa7a.png"><br/>
 
-
-<div id="editor">class BinarySearch 
-{
-    // Returns index of x if it is present in arr[],
-    // else return -1
-    int binarySearch(int arr[], int x)
-    {
-        int l = 0, r = arr.length - 1;
-        while (l <= r) {
-            int m = l + (r - l) / 2;
- 
-            // Check if x is present at mid
-            if (arr[m] == x)
-                return m;
- 
-            // If x greater, ignore left half
-            if (arr[m] < x)
-                l = m + 1;
- 
-            // If x is smaller, ignore right half
-            else
-                r = m - 1;
-        }
- 
-        // if we reach here, then element was
-        // not present
-        return -1;
-    }
- 
-    // Driver method to test above
-    public static void main(String args[])
-    {
-        BinarySearch ob = new BinarySearch();
-        int arr[] = { 2, 3, 4, 10, 40 };
-        int n = arr.length;
-        int x = 10;
-        int result = ob.binarySearch(arr, x);
-        if (result == -1)
-            System.out.println(
-                "Element is not present in array");
-        else
-            System.out.println("Element is present at "
-                               + "index " + result);
-    }
-}</div>
 
 
 <h3>Hacks</h3>

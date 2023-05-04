@@ -15,13 +15,12 @@
         justify-content: center;
       }
       canvas {
-        border: 2px solid #3D3D3D;
+        border: 2px solid #FF0000;
         background-color: #E6E6E6;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #000;
       }
     }
-    </style>
   </style>
 </head>
 <body>

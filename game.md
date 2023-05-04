@@ -4,12 +4,12 @@
   <title>Basic Doodle Jump HTML Game</title>
   <meta charset="UTF-8">
   <style>
-      html, body {
+      html, body {xc
         height: 100%;
         margin: 0;
       }  
       body {
-        display: flex;
+        display: grid;
         align-items: center;
         justify-content: center;
       }

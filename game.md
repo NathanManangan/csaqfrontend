@@ -9,7 +9,8 @@
       }  
       body {
         display: grid;
-        align-items: center;
+        text-align: center;
+        vertical-align: center; 
         justify-content: center;
       }
       canvas {

@@ -18,6 +18,8 @@
         background-color: #E6E6E6;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #FF0000;
+        display: block;
+        margin: auto;
       }
   </style>
 </head>

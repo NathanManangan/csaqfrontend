@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <style>
       html, body {xc
-        height: 100%;
+        height: 100%;  
         margin: 0;
       }  
       body {
@@ -20,6 +20,8 @@
         box-shadow: 0px 0px 10px #FF0000;
         display: block;
         margin: auto;
+        height: 60%;
+        width: 120%;
       }
   </style>
 </head>

@@ -20,7 +20,7 @@
         box-shadow: 0px 0px 10px #FF0000;
         display: block;
         margin: auto;
-        height: 60%;
+        height: 55%;
         width: 120%;
       }
   </style>

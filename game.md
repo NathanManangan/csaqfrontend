@@ -21,7 +21,6 @@
         display: block;
         margin: auto;
         height: 72%;
-        width: 80%;
       }
   </style>
 </head>

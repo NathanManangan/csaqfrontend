@@ -12,6 +12,7 @@
         text-align: center;
         vertical-align: center; 
         justify-content: center;
+        margin-left: 20px;
       }
       canvas {
         border: 2px solid #FF0000;
@@ -20,7 +21,7 @@
         box-shadow: 0px 0px 10px #FF0000;
         display: block;
         margin: auto;
-        height: 70%;
+        height: 80%;
       }
   </style>
 </head>

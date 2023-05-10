@@ -3,16 +3,15 @@
   <title>Basic Doodle Jump HTML Game</title>
   <meta charset="UTF-8">
   <style>
-      html, body {xc
+      html, body {
         height: 100%;  
         margin: 0;
       }  
       body {
         display: grid;
         text-align: center;
-        vertical-align: center; 
+        align-items: center; 
         justify-content: center;
-        margin-left: 40px;
       }
       canvas {
         border: 2px solid #FF0000;
@@ -27,30 +26,34 @@
         font-size: 2em;
         font-weight: bold;
         position: absolute;
-        top: 0;
-        left: 50%;
+        top: 1;
+        left: 52%;
         transform: translateX(-50%);
       }
   </style>
 </head>
 <body>
-  <div id="score">Score: 0</div>
+  <div id="score">1</div>
 <canvas width="375" height="667" id="game"></canvas>
 <script>
   const canvas = document.getElementById('game');
   const context = canvas.getContext('2d');
+  // width and height of each platform and where platforms start
   const platformWidth = 65;
   const platformHeight = 20;
   const platformStart = canvas.height - 50;
+  // player physics
   const gravity = 0.33;
   const drag = 0.3;
   const bounceVelocity = -12.5;
+  // minimum and maximum vertical space between each platform
   let minPlatformSpace = 15;
   let maxPlatformSpace = 20;
   //variable to keep track of score
+  /*
   let score = 0;
   let scoreDisplay = document.createElement("div");
-  scoreDisplay.innerHTML = Score: ${score};
+  scoreDisplay.innerHTML = ${score};
   scoreDisplay.style.position = "absolute";
   scoreDisplay.style.top = "10px";
   scoreDisplay.style.left = "10px";
@@ -58,18 +61,31 @@
   //updating score
   function updateScore() {
     score++;
-    scoreDisplay.innerHTML = Score: ${score};
+    scoreDisplay.innerHTML = ${score};
   }
+  */
+  // information about each platform. the first platform starts in the
+  // bottom middle of the screen
   let platforms = [{
     x: canvas.width / 2 - platformWidth / 2,
     y: platformStart
   }];
+  // get a random number between the min (inclusive) and max (exclusive)
   function random(min, max) {
     return Math.random() * (max - min) + min;
   }
+  // fill the initial screen with platforms
   let y = platformStart;
   while (y > 0) {
+    // the next platform can be placed above the previous one with a space
+    // somewhere between the min and max space
     y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+    // a platform can be placed anywhere 25px from the left edge of the canvas
+    // and 25px from the right edge of the canvas (taking into account platform
+    // width).
+    // however the first few platforms cannot be placed in the center so
+    // that the player will bounce up and down without going up the screen
+    // until they are ready to move
     let x;
     do {
       x = random(25, canvas.width - 25 - platformWidth);
@@ -80,18 +96,23 @@
     );
     platforms.push({ x, y });
   }
+  // the doodle jumper
   const doodle = {
     width: 40,
     height: 60,
     x: canvas.width / 2 - 20,
     y: platformStart - 60,
+    //velocity
     dx: 0,
     dy: 0
   };
+  // keep track of player direction and actions
   let playerDir = 0;
   let keydown = false;
   let prevDoodleY = doodle.y;
+  //game loop
   function loop() {
+    //updateScore();
     requestAnimationFrame(loop);
     context.clearRect(0,0,canvas.width,canvas.height);
     // apply gravity to doodle
@@ -195,6 +216,7 @@
   });
   // start the game
   requestAnimationFrame(loop);
+  //updateScore();
 </script>
 </body>
 </html>

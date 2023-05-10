@@ -12,7 +12,7 @@
         text-align: center;
         vertical-align: center; 
         justify-content: center;
-        margin-left: 20px;
+        margin-left: 40px;
       }
       canvas {
         border: 2px solid #FF0000;
@@ -23,9 +23,18 @@
         margin: auto;
         height: 80%;
       }
+      #score {
+        font-size: 2em;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
   </style>
 </head>
 <body>
+  <div id="score">Score: 0</div>
 <canvas width="375" height="667" id="game"></canvas>
 <script>
   const canvas = document.getElementById('game');
@@ -38,6 +47,19 @@
   const bounceVelocity = -12.5;
   let minPlatformSpace = 15;
   let maxPlatformSpace = 20;
+  //variable to keep track of score
+  let score = 0;
+  let scoreDisplay = document.createElement("div");
+  scoreDisplay.innerHTML = Score: ${score};
+  scoreDisplay.style.position = "absolute";
+  scoreDisplay.style.top = "10px";
+  scoreDisplay.style.left = "10px";
+  document.body.appendChild(scoreDisplay);
+  //updating score
+  function updateScore() {
+    score++;
+    scoreDisplay.innerHTML = Score: ${score};
+  }
   let platforms = [{
     x: canvas.width / 2 - platformWidth / 2,
     y: platformStart

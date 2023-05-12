@@ -11,7 +11,6 @@
         display: grid;
         text-align: center;
         align-items: center; 
-        justify-content: center;
       }
       canvas {
         border: 2px solid #FF0000;
@@ -20,7 +19,7 @@
         box-shadow: 0px 0px 10px #FF0000;
         display: block;
         margin: auto;
-        height: 80%;
+        height: 100%;
       }
       #score {
         font-size: 2em;

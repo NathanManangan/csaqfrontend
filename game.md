@@ -6,9 +6,10 @@
       html, body {
         height: 100%;  
         margin: 0;
+        display: flex; /* add display: flex; */
+        justify-content: flex-start; /* add justify-content: flex-start; */
       }  
       body {
-        display: grid;
         text-align: center;
         align-items: center; 
       }

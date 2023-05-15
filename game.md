@@ -6,8 +6,6 @@
       html, body {
         height: 100%;  
         margin: 0;
-        display: flex; /* add display: flex; */
-        justify-content: flex-start; /* add justify-content: flex-start; */
       }  
       body {
         text-align: center;
@@ -19,7 +17,7 @@
         border-radius: 10px;
         box-shadow: 0px 0px 10px #FF0000;
         display: block;
-        margin: auto;
+        margin: 0;
         height: 100%;
       }
       #score {

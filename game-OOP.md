@@ -132,14 +132,48 @@ class DoodleJumper {
     //repeating the loop
     requestAnimationFrame(() => this.loop());
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // apply gravity to doodle
     this.doodle.dy += this.gravity;
+    // if doodle reaches the middle of the screen, move the platforms down
+    // instead of doodle up to make it look like doodle is going up
     if (this.doodle.y < this.canvas.height / 2 && this.doodle.dy < 0) {
       this.platforms.forEach((platform) => {
         platform.y += -this.doodle.dy;
       });
+      // add more platforms to the top of the screen as doodle moves up
       while (this.platforms[this.platforms.length - 1].y > 0) {
         this.platforms.push({
-          x: this.random(25
+          x: this.random(25, canvas.width - 25 - platformWidth),
+          y: platforms[platforms.length - 1].y - (platformHeight + random(minPlatformSpace, maxPlatformSpace))
+        })
+        // add a bit to the min/max platform space as the player goes up
+        minPlatformSpace += 0.5;
+        maxPlatformSpace += 0.5;
+        // cap max space
+        maxPlatformSpace = Math.min(maxPlatformSpace, canvas.height / 2);
+      }
+    }
+    else {
+      doodle.y += doodle.dy;
+    }
+    // only apply drag to horizontal movement if key is not pressed
+    if (!keydown) {
+      if (playerDir < 0) {
+        doodle.dx += drag;
+        // don't let dx go above 0
+        if (doodle.dx > 0) {
+          doodle.dx = 0;
+          playerDir = 0;
+        }
+      }
+      else if (playerDir > 0) {
+        doodle.dx -= drag;
+        if (doodle.dx < 0) {
+          doodle.dx = 0;
+          playerDir = 0;
+        }
+      }
+    }
 </script>
 </body>
 

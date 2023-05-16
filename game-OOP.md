@@ -145,6 +145,20 @@ class DoodleJumper {
 
 
 <body>
-<p>pp </p>
+<p>Hashmap array</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Map
+const scores = new Map([
+  ["jim", 500],
+  ["knish", 300],
+  ["monkey", 200]
+]);
+
+document.getElementById("demo").innerHTML = scores.get("knish");
+</script>
+
 </body>
 </html>

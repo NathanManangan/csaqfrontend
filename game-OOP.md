@@ -174,6 +174,68 @@ class DoodleJumper {
         }
       }
     }
+    doodle.x += doodle.dx;
+    // make doodle wrap the screen
+    if (doodle.x + doodle.width < 0) {
+      doodle.x = canvas.width;
+    }
+    else if (doodle.x > canvas.width) {
+      doodle.x = -doodle.width;
+    }
+    // draw platforms
+    context.fillStyle = 'green';
+    platforms.forEach(function(platform) {
+      context.fillRect(platform.x, platform.y, platformWidth, platformHeight);
+      // make doodle jump if it collides with a platform from above
+      if (
+        // doodle is falling
+        doodle.dy > 0 &&
+        // doodle was previous above the platform
+        prevDoodleY + doodle.height <= platform.y &&
+        // doodle collides with platform
+        // (Axis Aligned Bounding Box [AABB] collision check)
+        doodle.x < platform.x + platformWidth &&
+        doodle.x + doodle.width > platform.x &&
+        doodle.y < platform.y + platformHeight &&
+        doodle.y + doodle.height > platform.y
+      ) {
+        // reset doodle position so it's on top of the platform
+        doodle.y = platform.y - doodle.height;
+        doodle.dy = bounceVelocity;
+      }
+    });
+    // draw doodle
+    context.fillStyle = 'yellow';
+    context.fillRect(doodle.x, doodle.y, doodle.width, doodle.height);
+    prevDoodleY = doodle.y;
+    // remove any platforms that have gone offscreen
+    platforms = platforms.filter(function(platform) {
+      return platform.y < canvas.height;
+    })
+    }
+  }
+  // listen to keyboard events to move doodle
+  document.addEventListener('keydown', function(e) {
+    // left arrow key
+    if (e.which === 37) {
+      keydown = true;
+      playerDir = -1;
+      doodle.dx = -3;
+    }
+    // right arrow key
+    else if (e.which === 39) {
+      keydown = true;
+      playerDir = 1;
+      doodle.dx = 3;
+    }
+  });
+  document.addEventListener('keyup', function(e) {
+    keydown = false;
+  });
+  // start the game
+  requestAnimationFrame(loop);
+  //updateScore();
+  DoodleJumper.loop();
 </script>
 </body>
 

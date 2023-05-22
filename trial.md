@@ -1,4 +1,3 @@
-<html>
 class Score {
   constructor() {
     this.score = 0;
@@ -30,4 +29,3 @@ if (/* block touches platform */) {
   gameScore.resetScore();
   console.log("Score after reset: " + currentScore);
 }
-<>

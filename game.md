@@ -39,7 +39,7 @@
   // width and height of each platform and where platforms start
   const platformWidth = 65;
   const platformHeight = 20;
-  const platformStart = canvas.height - 50;
+  const platformStart = canvas.height - 50; //platformStart - 617
   // player physics
   const gravity = 0.33;
   const drag = 0.3;
@@ -65,8 +65,8 @@
   // information about each platform. the first platform starts in the
   // bottom middle of the screen
   let platforms = [{
-    x: canvas.width / 2 - platformWidth / 2,
-    y: platformStart
+    x: canvas.width / 2 - platformWidth / 2, //x = 155
+    y: platformStart //y = 617
   }];
   // get a random number between the min (inclusive) and max (exclusive)
   function random(min, max) {
@@ -77,7 +77,7 @@
   while (y > 0) {
     // the next platform can be placed above the previous one with a space
     // somewhere between the min and max space
-    y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+    y -= platformHeight + random(minPlatformSpace, maxPlatformSpace); //suppose it is y = 595 when called
     // a platform can be placed anywhere 25px from the left edge of the canvas
     // and 25px from the right edge of the canvas (taking into account platform
     // width).
@@ -86,7 +86,7 @@
     // until they are ready to move
     let x;
     do {
-      x = random(25, canvas.width - 25 - platformWidth);
+      x = random(25, canvas.width - 25 - platformWidth); //x = 259 suppose
     } while (
       y > canvas.height / 2 &&
       x > canvas.width / 2 - platformWidth * 1.5 &&
@@ -98,8 +98,8 @@
   const doodle = {
     width: 40,
     height: 60,
-    x: canvas.width / 2 - 20,
-    y: platformStart - 60,
+    x: canvas.width / 2 - 20, //x: 167
+    y: platformStart - 60, //617 - 60 = 557
     //velocity
     dx: 0,
     dy: 0
@@ -111,7 +111,7 @@
   //game loop
   function loop() {
     //updateScore();
-    requestAnimationFrame(loop);
+    requestAnimationFrame(loop);//* In built function
     context.clearRect(0,0,canvas.width,canvas.height);
     // apply gravity to doodle
     doodle.dy += gravity;
